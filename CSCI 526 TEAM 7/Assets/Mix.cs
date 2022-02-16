@@ -7,6 +7,10 @@ using System;
 
 public class Mix : MonoBehaviour
 {
+    [SerializeField] 
+    private Text _title;
+
+    
     public int spicy = 0;
     public int sweet = 0;
     public int sour = 0;
