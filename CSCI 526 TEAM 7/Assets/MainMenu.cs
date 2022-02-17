@@ -10,23 +10,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Bar");
     }
 
-
-
-    public void SendAnalytics()
+    public void SendAnalyticsServeCustomer(string optionSelected)
     {
         Analytics.CustomEvent("serve_customer", new Dictionary<string, object>
         {
-            { "option_selected", "Yes" }
+            { "option_selected", optionSelected }
         });
-
-        // AnalyticsEvent.Custom("secret_found", new Dictionary<string, object>
-        // {
-        //     { "secret_id", secretID },
-        //     { "time_elapsed", Time.timeSinceLevelLoad }
-        // });
     }
-
-
-
     
 }
