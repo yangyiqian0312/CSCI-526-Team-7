@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Analytics;
 
 public class Mix : MonoBehaviour
 {
@@ -220,5 +221,13 @@ public class Mix : MonoBehaviour
 
     public void showChild(){
         this.transform.GetChild(currChild).gameObject.SetActive(true);
+    }
+
+    public void SendAnalyticsBaseSelected(string baseSelected)
+    {
+        Analytics.CustomEvent("base_selected", new Dictionary<string, object>
+        {
+            { "base_selected", baseSelected }
+        });
     }
 }
