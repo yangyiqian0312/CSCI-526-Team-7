@@ -23,18 +23,81 @@ public class Mix : MonoBehaviour
 
     public int currentModifierNumber = 0;
 
-    public void updateTempPorpertyText(){
+    public int flavoringAdded = -1;
+
+    public int tips = 10;
+
+    public void updateTempPropertyText(){
         string tempText = "Spicy: " + spicy + "\nSweet: " + sweet +"\nSour: " + sour 
-            + "\nAromatic: " + aromatic +"\nStrength: " + strength;
+            + "\nAromatic: " + aromatic +"\nStrength: " + strength + "\nFlavoring: " + (flavoringAdded+1);
         Debug.Log(tempText);
+        
+        GameObject.Find("Temp").GetComponent<Text>().text = tempText;
     }
+
+    public void addFlavoring1(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 0;
+        }
+
+        updateTempPropertyText();
+    }
+
+    public void addFlavoring2(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 1;
+        }
+
+        updateTempPropertyText();
+    }
+
+    public void addFlavoring3(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 2;
+        }
+
+        updateTempPropertyText();
+    }
+
+    public void addFlavoring4(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 3;
+        }
+
+        updateTempPropertyText();
+    }
+
+    public void addFlavoring5(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 4;
+        }
+
+        updateTempPropertyText();
+    }
+
+    public void addFlavoring6(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 5;
+        }
+
+        updateTempPropertyText();
+    }
+
+    public void addFlavoring7(){
+        if (flavoringAdded == -1){
+            flavoringAdded = 6;
+        }
+
+        updateTempPropertyText();
+    }
+
 
     public void addModifier1(){
         if(currentModifierNumber < 4){
             sour ++;
             aromatic ++;
             currentModifierNumber ++;
-            updateTempPorpertyText();
+            updateTempPropertyText();
         }
     }
 
@@ -44,7 +107,7 @@ public class Mix : MonoBehaviour
             sweet ++;
             sour ++;
             currentModifierNumber ++;
-            updateTempPorpertyText();
+            updateTempPropertyText();
         }
     }
 
@@ -53,7 +116,7 @@ public class Mix : MonoBehaviour
             spicy ++;
             aromatic ++;
             currentModifierNumber ++;
-            updateTempPorpertyText();
+            updateTempPropertyText();
         }
     }
 
@@ -63,7 +126,7 @@ public class Mix : MonoBehaviour
             sour ++;
             strength ++;
             currentModifierNumber ++;
-            updateTempPorpertyText();
+            updateTempPropertyText();
         }
     }
 
@@ -74,7 +137,7 @@ public class Mix : MonoBehaviour
             sour += 1;
             strength += 2;
             baseAdded = 0;
-            updateTempPorpertyText();
+            updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
@@ -87,7 +150,7 @@ public class Mix : MonoBehaviour
             aromatic += 2;
             strength += 1;
             baseAdded = 1;
-            updateTempPorpertyText();
+            updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
@@ -97,7 +160,7 @@ public class Mix : MonoBehaviour
             sweet += 2;
             sour += 2;
             baseAdded = 2;
-            updateTempPorpertyText();
+            updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
@@ -108,7 +171,7 @@ public class Mix : MonoBehaviour
             aromatic += 2;
             strength += 1;
             baseAdded = 3;
-            updateTempPorpertyText();
+            updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
@@ -119,7 +182,7 @@ public class Mix : MonoBehaviour
             sweet += 2;
             strength += 1;
             baseAdded = 4;
-            updateTempPorpertyText();
+            updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
@@ -128,7 +191,7 @@ public class Mix : MonoBehaviour
             spicy += 2;
             strength += 3;
             baseAdded = 5;
-            updateTempPorpertyText();
+            updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
