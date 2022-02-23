@@ -29,7 +29,7 @@ public class Mix : MonoBehaviour
         string tempText = "Spicy: " + spicy + "\nSweet: " + sweet +"\nSour: " + sour 
             + "\nAromatic: " + aromatic +"\nStrength: " + strength + "\nFlavoring: " + (flavoringAdded+1);
 
-        Debug.Log(GlobalControl.Instance.tips);
+        Debug.Log(GameData.tips);
 
         
         GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
@@ -204,9 +204,9 @@ public class Mix : MonoBehaviour
 
     public void backToBar(){
 
-        GlobalControl.Instance.tips += 10;
+        GameData.tips += 10;
 
-        Debug.Log("Log after mix: "+ GlobalControl.Instance.tips);
+        Debug.Log("Log after mix: "+ GameData.tips);
 
         SceneManager.LoadScene("Bar");
     }
