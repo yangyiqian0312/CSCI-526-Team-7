@@ -8,9 +8,6 @@ using UnityEngine.Analytics;
 
 public class Mix : MonoBehaviour
 {
-    [SerializeField] 
-    private Text _title;
-
     
     public int spicy = 0;
     public int sweet = 0;
@@ -31,9 +28,13 @@ public class Mix : MonoBehaviour
     public void updateTempPropertyText(){
         string tempText = "Spicy: " + spicy + "\nSweet: " + sweet +"\nSour: " + sour 
             + "\nAromatic: " + aromatic +"\nStrength: " + strength + "\nFlavoring: " + (flavoringAdded+1);
-        Debug.Log(tempText);
+
+        Debug.Log(GlobalControl.Instance.tips);
+
         
-        GameObject.Find("Temp").GetComponent<Text>().text = tempText;
+        GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
+
+
     }
 
     public void addFlavoring1(){
@@ -202,6 +203,11 @@ public class Mix : MonoBehaviour
 
 
     public void backToBar(){
+
+        GlobalControl.Instance.tips += 10;
+
+        Debug.Log("Log after mix: "+ GlobalControl.Instance.tips);
+
         SceneManager.LoadScene("Bar");
     }
 
