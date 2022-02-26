@@ -8,12 +8,15 @@ using UnityEngine.Analytics;
 
 public class Mix : MonoBehaviour
 {
-    
-    public int spicy = 0;
-    public int sweet = 0;
-    public int sour = 0;
-    public int aromatic = 0;
-    public int strength = 0;
+
+     // idx0 = spicy
+    // idx1 = sweet
+    // idx2 = sour
+    // idx3 = aromatic
+    // idx4 = strength
+    // value >= 5 means have this prop
+    public List<int> mixProps = new List<int>() {0, 0, 0, 0, 0};
+
 
     public int currentBaseNumber = 0;
 
@@ -23,18 +26,35 @@ public class Mix : MonoBehaviour
 
     public int flavoringAdded = -1;
 
-    public int tips = 10;
-
     public void updateTempPropertyText(){
-        string tempText = "Spicy: " + spicy + "\nSweet: " + sweet +"\nSour: " + sour 
-            + "\nAromatic: " + aromatic +"\nStrength: " + strength + "\nFlavoring: " + (flavoringAdded+1);
+        string tempText = "Spicy: " + mixProps[0] + "\nSweet: " + mixProps[1] +"\nSour: " + mixProps[2]
+            + "\nAromatic: " + mixProps[3] +"\nStrength: " + mixProps[4] + "\nFlavoring: " + (flavoringAdded+1);
 
-        Debug.Log(GameData.tips);
+        Debug.Log("Log Customer Name!!!!!!!! "+GameData.customer1.name);
 
         
         GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
+    }
 
+    public void startOver(){
 
+        if(GameData.tips <= 0){
+            GameObject.Find("Mix").transform.GetChild(9).gameObject.SetActive(true);
+            return;
+        }
+
+        for(int i = 0; i < 5; i++){
+            mixProps[i] = 0;
+        }
+
+        currentBaseNumber = 0;
+        baseAdded = -1;
+        currentModifierNumber = 0;
+        flavoringAdded = -1;
+
+        GameData.tips --;
+
+        updateTempPropertyText();
     }
 
     public void addFlavoring1(){
@@ -96,8 +116,8 @@ public class Mix : MonoBehaviour
 
     public void addModifier1(){
         if(currentModifierNumber < 4){
-            sour ++;
-            aromatic ++;
+            mixProps[2] ++;
+            mixProps[3] ++;
             currentModifierNumber ++;
             updateTempPropertyText();
         }
@@ -105,9 +125,9 @@ public class Mix : MonoBehaviour
 
     public void addModifier2(){
         if(currentModifierNumber < 4){
-            spicy ++;
-            sweet ++;
-            sour ++;
+            mixProps[0] ++;
+            mixProps[1] ++;
+            mixProps[2] ++;
             currentModifierNumber ++;
             updateTempPropertyText();
         }
@@ -115,8 +135,8 @@ public class Mix : MonoBehaviour
 
     public void addModifier3(){
         if(currentModifierNumber < 4){
-            spicy ++;
-            aromatic ++;
+            mixProps[0] ++;
+            mixProps[3] ++;
             currentModifierNumber ++;
             updateTempPropertyText();
         }
@@ -124,9 +144,9 @@ public class Mix : MonoBehaviour
 
     public void addModifier4(){
         if(currentModifierNumber < 4){
-            sweet ++;
-            sour ++;
-            strength ++;
+            mixProps[1] ++;
+            mixProps[2] ++;
+            mixProps[4] ++;
             currentModifierNumber ++;
             updateTempPropertyText();
         }
@@ -135,9 +155,9 @@ public class Mix : MonoBehaviour
 
     public void addBaseA(){
         if((baseAdded == -1 || baseAdded == 0) &&(currentBaseNumber < 3)){
-            spicy += 2;
-            sour += 1;
-            strength += 2;
+            mixProps[0] += 2;
+            mixProps[2] += 1;
+            mixProps[4] += 2;
             baseAdded = 0;
             updateTempPropertyText();
             currentBaseNumber ++;
@@ -146,11 +166,11 @@ public class Mix : MonoBehaviour
 
     public void addBaseB(){
         if((baseAdded == -1 || baseAdded == 1)&&(currentBaseNumber < 3)){
-            spicy += 1;
-            sweet += 1;
-            sour += 1;
-            aromatic += 2;
-            strength += 1;
+            mixProps[0] += 1;
+            mixProps[1] += 1;
+            mixProps[2] += 1;
+            mixProps[3] += 2;
+            mixProps[4] += 1;
             baseAdded = 1;
             updateTempPropertyText();
             currentBaseNumber ++;
@@ -159,8 +179,8 @@ public class Mix : MonoBehaviour
 
     public void addBaseC(){
         if((baseAdded == -1 || baseAdded == 2)&&(currentBaseNumber < 3)){
-            sweet += 2;
-            sour += 2;
+            mixProps[1] += 2;
+            mixProps[2] += 2;
             baseAdded = 2;
             updateTempPropertyText();
             currentBaseNumber ++;
@@ -169,9 +189,9 @@ public class Mix : MonoBehaviour
 
     public void addBaseD(){
         if((baseAdded == -1 || baseAdded == 3)&&(currentBaseNumber < 3)){
-            spicy += 1;
-            aromatic += 2;
-            strength += 1;
+            mixProps[0] += 1;
+            mixProps[3] += 2;
+            mixProps[4] += 1;
             baseAdded = 3;
             updateTempPropertyText();
             currentBaseNumber ++;
@@ -180,9 +200,9 @@ public class Mix : MonoBehaviour
 
     public void addBaseE(){
         if((baseAdded == -1 || baseAdded == 4)&&(currentBaseNumber < 3)){
-            spicy += 2;
-            sweet += 2;
-            strength += 1;
+            mixProps[0] += 2;
+            mixProps[1] += 2;
+            mixProps[4] += 1;
             baseAdded = 4;
             updateTempPropertyText();
             currentBaseNumber ++;
@@ -190,25 +210,87 @@ public class Mix : MonoBehaviour
     }
     public void addBaseF(){
         if((baseAdded == -1 || baseAdded == 5)&&(currentBaseNumber < 3)){
-            spicy += 2;
-            strength += 3;
+            mixProps[0] += 2;
+            mixProps[4] += 3;
             baseAdded = 5;
             updateTempPropertyText();
             currentBaseNumber ++;
         }
     }
 
-
-
-
-
-    public void backToBar(){
-
-        GameData.tips += 10;
-
-        Debug.Log("Log after mix: "+ GameData.tips);
-
+    public void toNextScene(){
+        //Debug.Log("Log after mix: "+ GameData.tips);
         SceneManager.LoadScene("Bar");
+    }
+
+    public void Serve(){
+
+        int satisfiedReqs = 0;
+
+        int totalReqs = GameData.currCustomer.requirementNum;
+
+        for(int i = 0; i < 5; i++){
+            int currProp = GameData.currCustomer.requirments[i];
+            if (currProp == 1){
+                if(mixProps[i] >= 5){
+                    satisfiedReqs ++;
+                }
+            }else if (currProp == -1){
+                if(mixProps[i] < 5){
+                    satisfiedReqs ++;
+                }
+            }
+        }
+
+        if(GameData.currCustomer.flavoring != -1){
+            if(GameData.currCustomer.flavoring == flavoringAdded){
+                satisfiedReqs ++;
+            }
+        }
+
+        float currTip = GameData.currCustomer.customTip;
+        int satisfyLevel = 2;
+
+        if (totalReqs == 2){
+            if(satisfiedReqs == 1){
+                currTip /= 2;
+                satisfyLevel = 1;
+            }
+        }else if (totalReqs == 3){
+            if (satisfiedReqs == 1){
+                currTip = 0;
+                satisfyLevel = 0;
+
+            }else if (satisfiedReqs == 2){
+                currTip /= 2;
+                satisfyLevel = 1;
+            }
+        }
+        
+        if(satisfiedReqs == 0){
+            currTip = 0;
+            satisfyLevel = 0;
+        }
+        
+        GameData.tips += currTip;
+
+        Debug.Log("New Gain: " + currTip+ "\nCurr Total Tips: " + GameData.tips);
+
+        string customerFeedBack; //Need to be changed after midterm
+
+        if(satisfyLevel == 2){
+            customerFeedBack = "That's perfect! Here is the tip for you: $" + currTip;
+        }else if (satisfyLevel == 1){
+            customerFeedBack = "That's not exactly what I ordered, but I'll accept it. tip: $" + currTip;
+        }else{
+            customerFeedBack = "I do not like this drink. Don't expect any tip from me. tip: $0";
+        }
+
+        customerFeedBack += "\nTotal tips earned: $" + GameData.tips;
+
+        GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = customerFeedBack;
+
     }
 
     private int currChild = 0;
