@@ -8,4 +8,9 @@ public class DialogueEvent : MonoBehaviour
     public void newWindow(){
         SceneManager.LoadScene("Dialogue");
     }
+
+
+    public void toSkill(){
+        SceneManager.LoadScene("UpgradeSkills");
+    }
 }

@@ -5,9 +5,10 @@ using UnityEngine;
 public static class GameData
 {
     public static float tips;
-    public static int tipBoosterLevel;
     public static Customer currCustomer;
     public static int customerIDRange = 5;
+    public static int upgradeTipsNeed = 2;
+    public static int tipsLevel = 0;
 
 
     public class Customer{
