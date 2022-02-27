@@ -361,10 +361,24 @@ public class Mix : MonoBehaviour
     {
         Analytics.CustomEvent("serve_summary", new Dictionary<string, object>
         {
-            { "customer_requirements", satisfyLevel },
+            { "customer_requirements", String.Format(
+                "{0} {1} {2} {3} {4}", 
+                customerRequirements[0],
+                customerRequirements[1],
+                customerRequirements[2],
+                customerRequirements[3],
+                customerRequirements[4])
+            },
             { "cursomer_requirement_nums", cursomerRequirementNums },
             { "customer_flavoring", customerFlavoring },
-            { "served_requirements", servedRequirements },
+            { "served_requirements", String.Format(
+                "{0} {1} {2} {3} {4}", 
+                servedRequirements[0],
+                servedRequirements[1],
+                servedRequirements[2],
+                servedRequirements[3],
+                servedRequirements[4])
+            },
             { "served_requirement_nums", servedRequirementNums },
             { "served_flavoring", servedFlavoring },
             { "satisfy_level", satisfyLevel },
