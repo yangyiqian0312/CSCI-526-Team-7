@@ -5,6 +5,7 @@ using UnityEngine;
 public static class GameData
 {
     public static float tips;
+    public static int date = 1;
     public static Customer currCustomer;
     public static int customerIDRange = 5;
     public static int upgradeTipsNeed = 2;

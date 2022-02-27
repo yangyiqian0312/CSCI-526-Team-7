@@ -220,6 +220,7 @@ public class Mix : MonoBehaviour
 
     public void toNextScene(){
         //Debug.Log("Log after mix: "+ GameData.tips);
+        GameData.date += 1;
         SceneManager.LoadScene("Bar");
     }
 
