@@ -337,7 +337,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/Users/zhiyuliao/Desktop/Main/Study/Spring_2022/CSCI-526/Project/CSCI-526-Team-7/CSCI 526 TEAM 7/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/Users/bunnyxt/Projects/CSCI-526-Team-7/CSCI 526 TEAM 7/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/Applications/Unity/Hub/Editor/2020.3.26f1/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

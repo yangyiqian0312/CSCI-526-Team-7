@@ -291,6 +291,18 @@ public class Mix : MonoBehaviour
         GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
             = customerFeedBack;
 
+        // send serve result analytics
+        this.SendAnalyticsServeSummary(
+            customerRequirements: GameData.currCustomer.requirments,
+            cursomerRequirementNums: totalReqs,
+            customerFlavoring: GameData.currCustomer.flavoring,
+            servedRequirements: mixProps,
+            servedRequirementNums: satisfiedReqs,
+            servedFlavoring: flavoringAdded,
+            satisfyLevel: satisfyLevel,
+            tipsEarned: currTip,
+            maxTipsCustumerAffordable: GameData.currCustomer.customTip
+        );
     }
 
     private int currChild = 0;
@@ -316,6 +328,48 @@ public class Mix : MonoBehaviour
         Analytics.CustomEvent("base_selected", new Dictionary<string, object>
         {
             { "base_selected", baseSelected }
+        });
+    }
+
+    public void SendAnalyticsModifierSelected(string modifierSelected)
+    {
+        Analytics.CustomEvent("modifier_selected", new Dictionary<string, object>
+        {
+            { "modifier_selected", modifierSelected }
+        });
+    }
+
+    public void SendAnalyticsFlavoringSelected(string flavoringSelected)
+    {
+        Analytics.CustomEvent("flavoring_selected", new Dictionary<string, object>
+        {
+            { "flavoring_selected", flavoringSelected }
+        });
+    }
+
+    public void SendAnalyticsServeSummary(
+        List<int> customerRequirements,
+        int cursomerRequirementNums,
+        int customerFlavoring,
+        List<int> servedRequirements,
+        int servedRequirementNums,
+        int servedFlavoring,
+        int satisfyLevel, 
+        float tipsEarned,
+        float maxTipsCustumerAffordable
+    )
+    {
+        Analytics.CustomEvent("serve_summary", new Dictionary<string, object>
+        {
+            { "customer_requirements", satisfyLevel },
+            { "cursomer_requirement_nums", cursomerRequirementNums },
+            { "customer_flavoring", customerFlavoring },
+            { "served_requirements", servedRequirements },
+            { "served_requirement_nums", servedRequirementNums },
+            { "served_flavoring", servedFlavoring },
+            { "satisfy_level", satisfyLevel },
+            { "tips_earned", tipsEarned },
+            { "max_tips_custumer_affordable", maxTipsCustumerAffordable }
         });
     }
 }
