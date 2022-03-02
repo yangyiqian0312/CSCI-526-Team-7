@@ -17,6 +17,9 @@ public class Mix : MonoBehaviour
     // value >= 5 means have this prop
     public List<int> mixProps = new List<int>() {0, 0, 0, 0, 0};
 
+    public void Awake(){
+        updateTempPropertyText();
+    }
 
     public int currentBaseNumber = 0;
 
@@ -34,14 +37,44 @@ public class Mix : MonoBehaviour
 
         
         GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
+
+        GameObject.Find("SpicySlider").GetComponent<Slider>().value = ((float)mixProps[0] / 5);
+        GameObject.Find("SweetSlider").GetComponent<Slider>().value = ((float)mixProps[1] / 5);
+        GameObject.Find("SourSlider").GetComponent<Slider>().value = ((float)mixProps[2] / 5);
+        GameObject.Find("AromaticSlider").GetComponent<Slider>().value = ((float)mixProps[3] / 5);
+        GameObject.Find("StrengthSlider").GetComponent<Slider>().value = ((float)mixProps[4] / 5);
+
+        string CurrentPropertyText = "Your drink is: \n";
+
+        CurrentPropertyText += (mixProps[0] >= 5 ? "Spicy\n" : "");
+        CurrentPropertyText += (mixProps[1] >= 5 ? "Sweet\n" : "");
+        CurrentPropertyText += (mixProps[2] >= 5 ? "Sour\n" : "");
+        CurrentPropertyText += (mixProps[3] >= 5 ? "Aromatic\n" : "");
+        CurrentPropertyText += (mixProps[4] >= 5 ? "Strong\n" : "");
+
+        CurrentPropertyText += (flavoringAdded == 0 ? "&\nTopped with Fresh Cherry\n" : "");
+        CurrentPropertyText += (flavoringAdded == 1 ? "&\nTopped with Chili Flake\n" : "");
+        CurrentPropertyText += (flavoringAdded == 2 ? "&\nTopped with Gold Leaves\n" : "");
+        CurrentPropertyText += (flavoringAdded == 3 ? "&\nTopped with Pineapple\n" : "");
+        CurrentPropertyText += (flavoringAdded == 4 ? "&\nTopped with Lemon\n" : "");
+        CurrentPropertyText += (flavoringAdded == 5 ? "&\nTopped with Orange Syrup\n" : "");
+        CurrentPropertyText += (flavoringAdded == 6 ? "&\nTopped with Mint\n" : "");
+
+
+        
+
+        GameObject.Find("PropertyGain").GetComponent<TMPro.TextMeshProUGUI>().text = CurrentPropertyText;
+
+        
+        
     }
 
     public void startOver(){
 
-        if(GameData.tips <= 0){
-            GameObject.Find("Mix").transform.GetChild(9).gameObject.SetActive(true);
-            return;
-        }
+        // if(GameData.tips <= 0){
+        //     GameObject.Find("Mix").transform.GetChild(8).gameObject.SetActive(true);
+        //     return;
+        // }
 
         for(int i = 0; i < 5; i++){
             mixProps[i] = 0;
@@ -52,7 +85,7 @@ public class Mix : MonoBehaviour
         currentModifierNumber = 0;
         flavoringAdded = -1;
 
-        GameData.tips --;
+        //GameData.tips --;
 
         updateTempPropertyText();
     }
