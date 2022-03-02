@@ -17,6 +17,13 @@ public class Mix : MonoBehaviour
     // value >= 5 means have this prop
     public List<int> mixProps = new List<int>() {0, 0, 0, 0, 0};
 
+    public List<int> currentModifierProperty = new List<int>() {0,0,0,0,0};
+
+   
+
+    public void Awake(){
+        updateTempPropertyText();
+    }
 
     public int currentBaseNumber = 0;
 
@@ -26,6 +33,20 @@ public class Mix : MonoBehaviour
 
     public int flavoringAdded = -1;
 
+    //Remove the property of current last chosen modifier
+    public void ResetPropertyByModifier(){
+        for(int i = 0; i < 5; i++){
+            mixProps[i] -= currentModifierProperty[i];
+        }
+    }
+
+    //Add the property of the current chosen modifier
+    public void UpdatePropertyByModifier(){
+        for(int i = 0; i < 5; i++){
+            mixProps[i] += currentModifierProperty[i];
+        }
+    }
+
     public void updateTempPropertyText(){
         string tempText = "Spicy: " + mixProps[0] + "\nSweet: " + mixProps[1] +"\nSour: " + mixProps[2]
             + "\nAromatic: " + mixProps[3] +"\nStrength: " + mixProps[4] + "\nFlavoring: " + (flavoringAdded+1);
@@ -33,18 +54,52 @@ public class Mix : MonoBehaviour
         Debug.Log("Log Customer Name!!!!!!!! "+GameData.customer1.name);
 
         
-        GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
+        // GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
+
+        GameObject.Find("SpicySlider").GetComponent<Slider>().value = ((float)mixProps[0] / 5);
+        GameObject.Find("SweetSlider").GetComponent<Slider>().value = ((float)mixProps[1] / 5);
+        GameObject.Find("SourSlider").GetComponent<Slider>().value = ((float)mixProps[2] / 5);
+        GameObject.Find("AromaticSlider").GetComponent<Slider>().value = ((float)mixProps[3] / 5);
+        GameObject.Find("StrengthSlider").GetComponent<Slider>().value = ((float)mixProps[4] / 5);
+
+        string CurrentPropertyText = "Your drink is: \n";
+
+        CurrentPropertyText += (mixProps[0] >= 5 ? "Spicy\n" : "");
+        CurrentPropertyText += (mixProps[1] >= 5 ? "Sweet\n" : "");
+        CurrentPropertyText += (mixProps[2] >= 5 ? "Sour\n" : "");
+        CurrentPropertyText += (mixProps[3] >= 5 ? "Aromatic\n" : "");
+        CurrentPropertyText += (mixProps[4] >= 5 ? "Strong\n" : "");
+
+        CurrentPropertyText += (flavoringAdded == 0 ? "&\nTopped with Fresh Cherry\n" : "");
+        CurrentPropertyText += (flavoringAdded == 1 ? "&\nTopped with Chili Flake\n" : "");
+        CurrentPropertyText += (flavoringAdded == 2 ? "&\nTopped with Gold Leaves\n" : "");
+        CurrentPropertyText += (flavoringAdded == 3 ? "&\nTopped with Pineapple\n" : "");
+        CurrentPropertyText += (flavoringAdded == 4 ? "&\nTopped with Lemon\n" : "");
+        CurrentPropertyText += (flavoringAdded == 5 ? "&\nTopped with Orange Syrup\n" : "");
+        CurrentPropertyText += (flavoringAdded == 6 ? "&\nTopped with Mint\n" : "");
+
+
+        
+
+        GameObject.Find("PropertyGain").GetComponent<TMPro.TextMeshProUGUI>().text = CurrentPropertyText;
+
+        
+        
     }
 
     public void startOver(){
 
-        if(GameData.tips <= 0){
-            GameObject.Find("Mix").transform.GetChild(9).gameObject.SetActive(true);
-            return;
-        }
+        // if(GameData.tips <= 0){
+        //     GameObject.Find("Mix").transform.GetChild(8).gameObject.SetActive(true);
+        //     return;
+        // }
 
         for(int i = 0; i < 5; i++){
             mixProps[i] = 0;
+        }
+
+        for(int i = 0; i < 5; i++){
+            currentModifierProperty[i] = 0;
         }
 
         currentBaseNumber = 0;
@@ -52,9 +107,13 @@ public class Mix : MonoBehaviour
         currentModifierNumber = 0;
         flavoringAdded = -1;
 
-        GameData.tips --;
+        //GameData.tips --;
 
         updateTempPropertyText();
+
+        ResetBaseColor();
+        ResetModifierColor();
+        ResetFlavoringColor();
     }
 
     public void addFlavoring1(){
@@ -63,6 +122,10 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring1").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring1Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        
     }
 
     public void addFlavoring2(){
@@ -71,6 +134,9 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring2").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring2Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
     public void addFlavoring3(){
@@ -79,6 +145,9 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring3").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring3Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
     public void addFlavoring4(){
@@ -87,6 +156,9 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring4").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring4Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
     public void addFlavoring5(){
@@ -95,6 +167,9 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring5").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring5Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
     public void addFlavoring6(){
@@ -103,6 +178,9 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring6").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring6Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
     public void addFlavoring7(){
@@ -111,111 +189,215 @@ public class Mix : MonoBehaviour
         }
 
         updateTempPropertyText();
+        ResetFlavoringColor();
+        GameObject.Find("Flavoring7").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring7Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
 
     public void addModifier1(){
-        if(currentModifierNumber < 4){
-            mixProps[2] ++;
-            mixProps[3] ++;
-            currentModifierNumber ++;
-            updateTempPropertyText();
-        }
+
+        //Update the property of mixture after add Modifier1
+        ResetPropertyByModifier();
+        currentModifierProperty[0] = 0;
+        currentModifierProperty[1] = 0;
+        currentModifierProperty[2] = 2;
+        currentModifierProperty[3] = 2;
+        currentModifierProperty[4] = 0;
+        UpdatePropertyByModifier();
+
+        currentModifierNumber ++;
+        updateTempPropertyText();
+        ResetModifierColor();
+        GameObject.Find("Modifier1").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Modifier1Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+    
     }
 
     public void addModifier2(){
-        if(currentModifierNumber < 4){
-            mixProps[0] ++;
-            mixProps[1] ++;
-            mixProps[2] ++;
-            currentModifierNumber ++;
-            updateTempPropertyText();
-        }
+        //Update the property of mixture after add Modifier1
+        ResetPropertyByModifier();
+        currentModifierProperty[0] = 2;
+        currentModifierProperty[1] = 2;
+        currentModifierProperty[2] = 2;
+        currentModifierProperty[3] = 0;
+        currentModifierProperty[4] = 2;
+        UpdatePropertyByModifier();
+
+
+        currentModifierNumber ++;
+        updateTempPropertyText();
+        ResetModifierColor();
+        GameObject.Find("Modifier2").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Modifier2Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+    
     }
 
     public void addModifier3(){
-        if(currentModifierNumber < 4){
-            mixProps[0] ++;
-            mixProps[3] ++;
-            currentModifierNumber ++;
-            updateTempPropertyText();
-        }
+        //Update the property of mixture after add Modifier1
+        ResetPropertyByModifier();
+        currentModifierProperty[0] = 2;
+        currentModifierProperty[1] = 0;
+        currentModifierProperty[2] = 0;
+        currentModifierProperty[3] = 2;
+        currentModifierProperty[4] = 1;
+        UpdatePropertyByModifier();
+
+
+        currentModifierNumber ++;
+        updateTempPropertyText();
+        ResetModifierColor();
+        GameObject.Find("Modifier3").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Modifier3Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
     }
 
     public void addModifier4(){
-        if(currentModifierNumber < 4){
-            mixProps[1] ++;
-            mixProps[2] ++;
-            mixProps[4] ++;
-            currentModifierNumber ++;
-            updateTempPropertyText();
-        }
+
+        //Update the property of mixture after add Modifier1
+        ResetPropertyByModifier();
+        currentModifierProperty[0] = 0;
+        currentModifierProperty[1] = 3;
+        currentModifierProperty[2] = 2;
+        currentModifierProperty[3] = 0;
+        currentModifierProperty[4] = 2;
+        UpdatePropertyByModifier();
+
+
+        currentModifierNumber ++;
+        updateTempPropertyText();
+        ResetModifierColor();
+        GameObject.Find("Modifier4").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("Modifier4Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+    }
+
+    //Reset the background color and text color after choose base buttons
+    public void ResetBaseColor(){
+        GameObject.Find("BaseA").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("BaseAText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("BaseB").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("BaseBText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("BaseC").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("BaseCText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("BaseD").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("BaseDText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("BaseE").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("BaseEText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("BaseF").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("BaseFText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+    }
+
+    //Reset the background color and text color after choose modifier buttons
+    public void ResetModifierColor(){
+        GameObject.Find("Modifier1").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Modifier1Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Modifier2").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Modifier2Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Modifier3").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Modifier3Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Modifier4").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Modifier4Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+    }
+
+    //Reset the background color and text color after choose flavoring buttons
+    public void ResetFlavoringColor(){
+        GameObject.Find("Flavoring1").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring1Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring2").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring2Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring3").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring3Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring4").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring4Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring5").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring5Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring6").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring6Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
+        GameObject.Find("Flavoring7").GetComponent<Image>().color = new Color(255,255,255);
+        GameObject.Find("Flavoring7Text").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(0,0,0);
     }
 
 
     public void addBaseA(){
-        if((baseAdded == -1 || baseAdded == 0) &&(currentBaseNumber < 3)){
-            mixProps[0] += 2;
-            mixProps[2] += 1;
-            mixProps[4] += 2;
-            baseAdded = 0;
-            updateTempPropertyText();
-            currentBaseNumber ++;
-        }
+        mixProps[0] = 3;
+        mixProps[1] = 0;
+        mixProps[2] = 3;
+        mixProps[3] = 0;
+        mixProps[4] = 2;
+        baseAdded = 0;
+        ResetBaseColor();
+        updateTempPropertyText();
+        GameObject.Find("BaseA").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("BaseAText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        currentBaseNumber ++;
     }
 
     public void addBaseB(){
-        if((baseAdded == -1 || baseAdded == 1)&&(currentBaseNumber < 3)){
-            mixProps[0] += 1;
-            mixProps[1] += 1;
-            mixProps[2] += 1;
-            mixProps[3] += 2;
-            mixProps[4] += 1;
-            baseAdded = 1;
-            updateTempPropertyText();
-            currentBaseNumber ++;
-        }
+        mixProps[0] = 0;
+        mixProps[1] = 3;
+        mixProps[2] = 0;
+        mixProps[3] = 4;
+        mixProps[4] = 3;
+        baseAdded = 1;
+        updateTempPropertyText();
+        ResetBaseColor();
+        GameObject.Find("BaseB").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("BaseBText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        currentBaseNumber ++;
     }
 
     public void addBaseC(){
-        if((baseAdded == -1 || baseAdded == 2)&&(currentBaseNumber < 3)){
-            mixProps[1] += 2;
-            mixProps[2] += 2;
-            baseAdded = 2;
-            updateTempPropertyText();
-            currentBaseNumber ++;
-        }
+        mixProps[0] = 0;
+        mixProps[1] = 3;
+        mixProps[2] = 3;
+        mixProps[3] = 0;
+        mixProps[4] = 0;
+        baseAdded = 2;
+        updateTempPropertyText();
+        ResetBaseColor();
+        GameObject.Find("BaseC").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("BaseCText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        currentBaseNumber ++;
     }
 
     public void addBaseD(){
-        if((baseAdded == -1 || baseAdded == 3)&&(currentBaseNumber < 3)){
-            mixProps[0] += 1;
-            mixProps[3] += 2;
-            mixProps[4] += 1;
-            baseAdded = 3;
-            updateTempPropertyText();
-            currentBaseNumber ++;
-        }
+        mixProps[0] = 3;
+        mixProps[1] = 0;
+        mixProps[2] = 0;
+        mixProps[3] = 3;
+        mixProps[4] = 3;
+        baseAdded = 3;
+        updateTempPropertyText();
+        ResetBaseColor();
+        GameObject.Find("BaseD").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("BaseDText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        currentBaseNumber ++;
     }
 
     public void addBaseE(){
-        if((baseAdded == -1 || baseAdded == 4)&&(currentBaseNumber < 3)){
-            mixProps[0] += 2;
-            mixProps[1] += 2;
-            mixProps[4] += 1;
-            baseAdded = 4;
-            updateTempPropertyText();
-            currentBaseNumber ++;
-        }
+        mixProps[0] = 3;
+        mixProps[1] = 3;
+        mixProps[2] = 0;
+        mixProps[3] = 0;
+        mixProps[4] = 2;
+        baseAdded = 4;
+        updateTempPropertyText();
+        ResetBaseColor();
+        GameObject.Find("BaseE").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("BaseEText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        currentBaseNumber ++;
     }
     public void addBaseF(){
-        if((baseAdded == -1 || baseAdded == 5)&&(currentBaseNumber < 3)){
-            mixProps[0] += 2;
-            mixProps[4] += 3;
-            baseAdded = 5;
-            updateTempPropertyText();
-            currentBaseNumber ++;
-        }
+        mixProps[0] = 3;
+        mixProps[1] = 0;
+        mixProps[2] = 0;
+        mixProps[3] = 0;
+        mixProps[4] = 4;
+        baseAdded = 5;
+        updateTempPropertyText();
+        ResetBaseColor();
+        GameObject.Find("BaseF").GetComponent<Image>().color = new Color(0,0,0);
+        GameObject.Find("BaseFText").GetComponent<TMPro.TextMeshProUGUI>().color = new Color(255,255,255);
+        currentBaseNumber ++;
     }
 
     public void toNextScene(){
@@ -231,7 +413,7 @@ public class Mix : MonoBehaviour
         int totalReqs = GameData.currCustomer.requirementNum;
 
         for(int i = 0; i < 5; i++){
-            int currProp = GameData.currCustomer.requirments[i];
+            int currProp = GameData.currCustomer.requirements[i];
             if (currProp == 1){
                 if(mixProps[i] >= 5){
                     satisfiedReqs ++;
@@ -294,7 +476,7 @@ public class Mix : MonoBehaviour
 
         // send serve result analytics
         this.SendAnalyticsServeSummary(
-            customerRequirements: GameData.currCustomer.requirments,
+            customerRequirements: GameData.currCustomer.requirements,
             cursomerRequirementNums: totalReqs,
             customerFlavoring: GameData.currCustomer.flavoring,
             servedRequirements: mixProps,

@@ -21,7 +21,7 @@ public static class GameData
         // idx3 = aromatic
         // idx4 = strength
         // 0 value = whatever; 1 = want this property; -1 = doesn't like this property
-        public List<int> requirments = new List<int>();
+        public List<int> requirements = new List<int>();
 
         // idx0 = Fresh cherry; idx1 = Chili flake; idx2 = gold leaves; idx3 = Pineapples; idx4 = Lemon;
         // idx5 = Orange Syrup; idx6 = Mint
@@ -37,11 +37,11 @@ public static class GameData
             int currFlavoring, string currName, int currRequirementNum, string currDialogue){
                 this.customTip = currTip;
 
-                this.requirments.Add(currSpicy);
-                this.requirments.Add(currSweet);
-                this.requirments.Add(currSour);
-                this.requirments.Add(currAromatic);
-                this.requirments.Add(currStrength);
+                this.requirements.Add(currSpicy);
+                this.requirements.Add(currSweet);
+                this.requirements.Add(currSour);
+                this.requirements.Add(currAromatic);
+                this.requirements.Add(currStrength);
 
                 this.flavoring = currFlavoring;
 
