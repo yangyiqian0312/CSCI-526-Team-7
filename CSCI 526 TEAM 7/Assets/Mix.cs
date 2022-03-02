@@ -19,7 +19,6 @@ public class Mix : MonoBehaviour
 
     public List<int> currentModifierProperty = new List<int>() {0,0,0,0,0};
 
-   
 
     public void Awake(){
         updateTempPropertyText();
@@ -29,9 +28,13 @@ public class Mix : MonoBehaviour
 
     public int baseAdded = -1;
 
+    public int modifierAdded = -1;
+
     public int currentModifierNumber = 0;
 
     public int flavoringAdded = -1;
+
+    public int specificCocktailStatus = -1;
 
     //Remove the property of current last chosen modifier
     public void ResetPropertyByModifier(){
@@ -44,6 +47,25 @@ public class Mix : MonoBehaviour
     public void UpdatePropertyByModifier(){
         for(int i = 0; i < 5; i++){
             mixProps[i] += currentModifierProperty[i];
+        }
+    }
+
+    public void UpdateSpecificCocktail(){
+        // LA Vacation
+        if(baseAdded == 3 &&  modifierAdded == 1 && flavoringAdded == 5){
+            specificCocktailStatus = 0;
+        }
+        else if(baseAdded == 4 &&  modifierAdded == 2 && flavoringAdded == 1){
+            specificCocktailStatus = 1;
+        }
+        else if(baseAdded == 5 &&  modifierAdded == 2 && flavoringAdded == 3){
+            specificCocktailStatus = 2;
+        }
+        else if(baseAdded == 2 &&  modifierAdded == 0 && flavoringAdded == 0){
+            specificCocktailStatus = 3;
+        }
+        else{
+            specificCocktailStatus = -1;
         }
     }
 
@@ -64,11 +86,11 @@ public class Mix : MonoBehaviour
 
         string CurrentPropertyText = "Your drink is: \n";
 
-        CurrentPropertyText += (mixProps[0] >= 5 ? "Spicy\n" : "");
-        CurrentPropertyText += (mixProps[1] >= 5 ? "Sweet\n" : "");
-        CurrentPropertyText += (mixProps[2] >= 5 ? "Sour\n" : "");
-        CurrentPropertyText += (mixProps[3] >= 5 ? "Aromatic\n" : "");
-        CurrentPropertyText += (mixProps[4] >= 5 ? "Strong\n" : "");
+        CurrentPropertyText += (mixProps[0] >= 5 ? "<b><#FF5F00>Spicy</color></b>\n" : "");
+        CurrentPropertyText += (mixProps[1] >= 5 ? "<b><#FF00FD>Sweet</color></b>\n" : "");
+        CurrentPropertyText += (mixProps[2] >= 5 ? "<b><#1ABC77>Sour</color></b>\n" : "");
+        CurrentPropertyText += (mixProps[3] >= 5 ? "<b><#002CFF>Aromatic</color></b>\n" : "");
+        CurrentPropertyText += (mixProps[4] >= 5 ? "<b><#FF0B00>Strong</color></b>\n" : "");
 
         CurrentPropertyText += (flavoringAdded == 0 ? "&\nTopped with Fresh Cherry\n" : "");
         CurrentPropertyText += (flavoringAdded == 1 ? "&\nTopped with Chili Flake\n" : "");
@@ -78,7 +100,12 @@ public class Mix : MonoBehaviour
         CurrentPropertyText += (flavoringAdded == 5 ? "&\nTopped with Orange Syrup\n" : "");
         CurrentPropertyText += (flavoringAdded == 6 ? "&\nTopped with Mint\n" : "");
 
+        UpdateSpecificCocktail();
 
+        CurrentPropertyText += (specificCocktailStatus == 0 ? "\n<b><i><#B7950B>LA Vacation</color></i></b>\n" : "");
+        CurrentPropertyText += (specificCocktailStatus == 1 ? "\n<b><i><#B7950B>Moutai</color></i></b>\n" : "");
+        CurrentPropertyText += (specificCocktailStatus == 2 ? "\n<b><i><#B7950B>Solar Cocktail</color></i></b>\n" : "");
+        CurrentPropertyText += (specificCocktailStatus == 3 ? "\n<b><i><#B7950B>Kindergarten</color></i></b>\n" : "");
         
 
         GameObject.Find("PropertyGain").GetComponent<TMPro.TextMeshProUGUI>().text = CurrentPropertyText;
@@ -104,8 +131,10 @@ public class Mix : MonoBehaviour
 
         currentBaseNumber = 0;
         baseAdded = -1;
+        modifierAdded = -1;
         currentModifierNumber = 0;
         flavoringAdded = -1;
+        specificCocktailStatus = -1;
 
         //GameData.tips --;
 
@@ -117,9 +146,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring1(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 0;
-        }
+        flavoringAdded = 0;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -129,9 +156,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring2(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 1;
-        }
+        flavoringAdded = 1;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -140,9 +165,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring3(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 2;
-        }
+        flavoringAdded = 2;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -151,9 +174,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring4(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 3;
-        }
+        flavoringAdded = 3;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -162,9 +183,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring5(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 4;
-        }
+        flavoringAdded = 4;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -173,9 +192,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring6(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 5;
-        }
+        flavoringAdded = 5;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -184,9 +201,7 @@ public class Mix : MonoBehaviour
     }
 
     public void addFlavoring7(){
-        if (flavoringAdded == -1){
-            flavoringAdded = 6;
-        }
+        flavoringAdded = 6;
 
         updateTempPropertyText();
         ResetFlavoringColor();
@@ -207,6 +222,7 @@ public class Mix : MonoBehaviour
         UpdatePropertyByModifier();
 
         currentModifierNumber ++;
+        modifierAdded = 0;
         updateTempPropertyText();
         ResetModifierColor();
         GameObject.Find("Modifier1").GetComponent<Image>().color = new Color(0,0,0);
@@ -226,6 +242,7 @@ public class Mix : MonoBehaviour
 
 
         currentModifierNumber ++;
+        modifierAdded = 1;
         updateTempPropertyText();
         ResetModifierColor();
         GameObject.Find("Modifier2").GetComponent<Image>().color = new Color(0,0,0);
@@ -245,6 +262,7 @@ public class Mix : MonoBehaviour
 
 
         currentModifierNumber ++;
+        modifierAdded = 2;
         updateTempPropertyText();
         ResetModifierColor();
         GameObject.Find("Modifier3").GetComponent<Image>().color = new Color(0,0,0);
@@ -264,6 +282,7 @@ public class Mix : MonoBehaviour
 
 
         currentModifierNumber ++;
+        modifierAdded = 3;
         updateTempPropertyText();
         ResetModifierColor();
         GameObject.Find("Modifier4").GetComponent<Image>().color = new Color(0,0,0);
@@ -427,6 +446,12 @@ public class Mix : MonoBehaviour
 
         if(GameData.currCustomer.flavoring != -1){
             if(GameData.currCustomer.flavoring == flavoringAdded){
+                satisfiedReqs ++;
+            }
+        }
+
+        if(GameData.currCustomer.specificCocktail != -1){
+            if(GameData.currCustomer.specificCocktail == specificCocktailStatus){
                 satisfiedReqs ++;
             }
         }

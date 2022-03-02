@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5654132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -795,13 +795,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseIntro
       objectReference: {fileID: 0}
+    - target: {fileID: 1643869602229360514, guid: 9b0bb0fda5c2e4d368e91cd6bee68d40, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1643869602238988663, guid: 9b0bb0fda5c2e4d368e91cd6bee68d40, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1643869602502131920, guid: 9b0bb0fda5c2e4d368e91cd6bee68d40, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1643869603200982720, guid: 9b0bb0fda5c2e4d368e91cd6bee68d40, type: 3}
       propertyPath: m_IsActive
@@ -1085,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3262321097517365458, guid: 9b0bb0fda5c2e4d368e91cd6bee68d40, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5066709560893783969, guid: 9b0bb0fda5c2e4d368e91cd6bee68d40, type: 3}
       propertyPath: m_IsActive
@@ -3452,8 +3456,10 @@ MonoBehaviour:
   currentModifierProperty: 0000000000000000000000000000000000000000
   currentBaseNumber: 0
   baseAdded: -1
+  modifierAdded: -1
   currentModifierNumber: 0
   flavoringAdded: -1
+  specificCocktailStatus: -1
 --- !u!1 &391948320
 GameObject:
   m_ObjectHideFlags: 0
@@ -7279,10 +7285,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "LA Vacation: \tBright Dreams + Tropical Oil + Orange Syrup\n\nMoutai:
-    \t\tSzechuan Sauce + Pepper Juice + Chili Flake\n\nSolar Cocktail: \tFire Breath
-    + Pepper juice + Pineapple\n\nKindergarten: \tTomato Juice + Lime Juice + Fresh
-    Cherry"
+  m_text: "<b><i><#B7950B>LA Vacation</color></i></b>: \tBright Dreams + Tropical
+    Oil + Orange Syrup\n\n<b><i><#B7950B>Moutai</color></i></b>: \t\tSzechuan Sauce
+    + Pepper Juice + Chili Flake\n\n<b><i><#B7950B>Solar Cocktail</color></i></b>:
+    \tFire Breath + Pepper juice + Pineapple\n\n<b><i><#B7950B>Kindergarten</color></i></b>:
+    \tTomato Juice + Lime Juice + Fresh Cherry"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9846,8 +9853,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294913024
-  m_fontColor: {r: 0, g: 0.17180729, b: 1, a: 1}
+    rgba: 4286545791
+  m_fontColor: {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13277,8 +13284,10 @@ MonoBehaviour:
   currentModifierProperty: 0000000000000000000000000000000000000000
   currentBaseNumber: 0
   baseAdded: -1
+  modifierAdded: -1
   currentModifierNumber: 0
   flavoringAdded: -1
+  specificCocktailStatus: -1
 --- !u!1 &1840508439
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public static class GameData
     public static float tips;
     public static int date = 1;
     public static Customer currCustomer;
-    public static int customerIDRange = 5;
+    public static int customerIDRange = 9;
     public static int upgradeTipsNeed = 2;
     public static int tipsLevel = 0;
 
@@ -30,11 +30,11 @@ public static class GameData
         public string name;
 
         public int requirementNum;
-
+        public int specificCocktail;
         public string dialogue;
 
         public Customer(int currTip, int currSpicy, int currSweet, int currSour, int currAromatic, int currStrength,
-            int currFlavoring, string currName, int currRequirementNum, string currDialogue){
+            int currFlavoring, string currName, int currRequirementNum, int currSpecificCocktail, string currDialogue){
                 this.customTip = currTip;
 
                 this.requirements.Add(currSpicy);
@@ -45,6 +45,7 @@ public static class GameData
 
                 this.flavoring = currFlavoring;
 
+                this.specificCocktail = currSpecificCocktail;
                 this.name = currName;
 
                 this.requirementNum = currRequirementNum;
@@ -52,26 +53,35 @@ public static class GameData
         }
     }
 
-    public static Customer customer1 = new Customer(10, 0, 1, 0, 1, 0, 0, "Sang", 3, 
-        "Hi there! Could you make me something SWEET and AROMATIC, and add a CHERRY on top please?");
+    public static Customer customer1 = new Customer(10, 0, 0, 0, 0, 0, -1, "Sang", 1, 0,
+        "Hi there! Could you make me an <b><i><#B7950B>LA Vacation</color></b></i>?");
 
-    public static Customer customer2 = new Customer(10, -1, -1, 1, 0, 0, -1, "Pedro", 3,
-         "I'm in the mood for a SOUR drink, but please DON'T make it TOO SWEET or TOO SPICY");
+    public static Customer customer2 = new Customer(10, 1, -1, 0, 0, 0, -1, "Pedro", 2, -1,
+         "I'm in the mood for a <b><#FF5F00>Spicy</color></b> drink, but please make it <b>NOT <#FF00FD>Sweet</color></b>. Can you do that for me?");
 
-    public static Customer customer3 = new Customer(50, 0, 0, 0, 0, 1, -1, "Wilson", 1, 
-        "Just give me something STRONG!");
+    public static Customer customer3 = new Customer(50, 0, 0, 0, 0, 1, -1, "Wilson", 1, -1,
+        "Just give me something <b><#FF0B00>Strong</color></b> !");
 
-    public static Customer customer4 = new Customer(40, 0, 0, 0, 1, 0, -1, "Jaq", 1, 
-        "Ooh Hello! I would really use a AROMATIC drink now!");
+    public static Customer customer4 = new Customer(40, 1, 0, 0, 1, 0, -1, "Jaq", 2, -1,
+        "Oh Hello! I would really use a <b><#002CFF>Aromatic</color></b> and <b><#FF5F00>Spicy</color></b> drink now! ");
 
-    public static Customer customer5 = new Customer(10, 0, -1, -1, 0, 0, 5, "Kelsey", 3, 
-        "A ORANGE SYRUP, but NOT TOO SOUR or TOO SWEET please.");
+    public static Customer customer5 = new Customer(10, 0, 1, -1, 0, 0, -1, "Kelsey", 2, -1,
+        "Can you make me a <b><#FF00FD>Sweet</color></b> cocktail, but <b>NOT <#1ABC77>Sour</color></b> ?");
 
-    public static Customer customer6 = new Customer(5, 0, 0, 0, 0, 0, 6, "Joe", 1, 
-        "Hi! A MINT please!");
+    public static Customer customer6 = new Customer(15, 0, 0, 0, 0, 0, -1, "Joe", 1, 2,
+        "Hi! A <b><i><#B7950B>Solar Cocktail</color></i></b> please!");
+
+    public static Customer customer7 = new Customer(20, 0, 1, 0, 0, 0, 0, "Frank", 2, -1,
+        "I would like a <b><#FF00FD>Sweet</color></b> drink, topped off with <b>Fresh Cherry</b>.");
+    
+    public static Customer customer8 = new Customer(10, 0, 0, 0, 0, 0, 0, "Calvin", 1, 3,
+        "Hi! I would like a non-alcoholic drink, so a <b><i><#B7950B>Kindergarten</color></i></b> please!");
+    
+    public static Customer customer9 = new Customer(20, 0, 0, 0, 0, 0, 0, "Zhou", 1, 1,
+        "Can you make a <b><i><#B7950B>Moutai</color></i></b> for me?");
 
     public static List<Customer> customers = new List<Customer>() {customer1, customer2, customer3, 
-        customer4, customer5, customer6};
+        customer4, customer5, customer6, customer7, customer8, customer9};
 
 
 
