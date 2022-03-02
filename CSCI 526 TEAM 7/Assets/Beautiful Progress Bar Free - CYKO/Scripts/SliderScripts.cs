@@ -17,7 +17,6 @@ public class SliderScripts : MonoBehaviour
 
     public void FillSlider()
     {
-        //fill.fillAmount = slider.value;
-        fill.fillAmount = 1;
+        fill.fillAmount = slider.value;
     }
 }
