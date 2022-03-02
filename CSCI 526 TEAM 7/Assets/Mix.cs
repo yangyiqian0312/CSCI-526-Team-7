@@ -114,6 +114,21 @@ public class Mix : MonoBehaviour
         
     }
 
+    public void baseStartOver(){
+        startOver();
+        ResetBaseColor();
+    }
+
+    public void modifierStartOver(){
+        startOver();
+        ResetModifierColor();
+    }
+
+    public void flavoringStartOver(){
+        startOver();
+        ResetFlavoringColor();
+    }
+
     public void startOver(){
 
         // if(GameData.tips <= 0){
@@ -139,10 +154,6 @@ public class Mix : MonoBehaviour
         //GameData.tips --;
 
         updateTempPropertyText();
-
-        ResetBaseColor();
-        ResetModifierColor();
-        ResetFlavoringColor();
     }
 
     public void addFlavoring1(){
@@ -426,6 +437,8 @@ public class Mix : MonoBehaviour
     }
 
     public void Serve(){
+
+        ResetFlavoringColor();
 
         int satisfiedReqs = 0;
 
