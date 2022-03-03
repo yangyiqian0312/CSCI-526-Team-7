@@ -8,4 +8,6 @@ public class GameMenu : MonoBehaviour
     public void newWindow(){
         SceneManager.LoadScene("Bar");
     }
+
+    
 }

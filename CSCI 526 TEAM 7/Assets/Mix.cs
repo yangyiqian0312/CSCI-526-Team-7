@@ -50,6 +50,10 @@ public class Mix : MonoBehaviour
         }
     }
 
+    public void setTutorialDone(){
+        GameData.TutorialDone = 1;
+    }
+
     public void UpdateSpecificCocktail(){
         // LA Vacation
         if(baseAdded == 3 &&  modifierAdded == 1 && flavoringAdded == 5){

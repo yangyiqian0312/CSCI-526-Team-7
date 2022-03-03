@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GameData
 {
     
-    public static int dialogueTutorial = 0;
+    public static int TutorialDone = 0;
 
     public static float tips;
     public static int date = 1;
