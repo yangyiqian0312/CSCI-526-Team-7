@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
         GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
             = GameData.currCustomer.dialogue;
 
+        GameObject.Find("Avatars").transform.GetChild(currID).gameObject.SetActive(true);
 
         GameObject.Find("CustomerName").GetComponent<TMPro.TextMeshProUGUI>().text 
             = GameData.currCustomer.name;
