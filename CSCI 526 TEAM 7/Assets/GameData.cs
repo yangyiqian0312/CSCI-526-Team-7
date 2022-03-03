@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class GameData
 {
+    
+    public static int dialogueTutorial = 0;
+
     public static float tips;
     public static int date = 1;
     public static Customer currCustomer;

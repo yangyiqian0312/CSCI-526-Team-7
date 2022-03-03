@@ -20,9 +20,15 @@ public class MainMenu : MonoBehaviour
     }
 
     void Awake(){
-
-        System.Random rnd = new System.Random();
-        int currID = rnd.Next(0, GameData.customerIDRange);
+        int currID;
+        if(GameData.dialogueTutorial == 0){
+            currID = 6;
+            GameData.dialogueTutorial = 1;
+        }
+        else{
+            System.Random rnd = new System.Random();
+            currID = rnd.Next(0, GameData.customerIDRange);
+        }
         GameData.currCustomer = GameData.customers[currID];
 
         GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
