@@ -523,6 +523,8 @@ public class Mix : MonoBehaviour
             customerFlavoring: GameData.currCustomer.flavoring,
             servedRequirements: mixProps,
             servedRequirementNums: satisfiedReqs,
+            servedBase: baseAdded,
+            servedModifier: modifierAdded,
             servedFlavoring: flavoringAdded,
             satisfyLevel: satisfyLevel,
             tipsEarned: currTip,
@@ -548,7 +550,19 @@ public class Mix : MonoBehaviour
         this.transform.GetChild(currChild).gameObject.SetActive(true);
     }
 
-    public void SendAnalyticsBaseSelected(string baseSelected)
+    public void ConfirmBaseSelect() {
+        this.SendAnalyticsBaseSelected(this.baseAdded);
+    }
+
+    public void ConfirmModifierSelect() {
+        this.SendAnalyticsModifierSelected(this.modifierAdded);
+    }
+
+    public void ConfirmFlavoringSelect() {
+        this.SendAnalyticsFlavoringSelected(this.flavoringAdded);
+    }
+
+    public void SendAnalyticsBaseSelected(int baseSelected)
     {
         Analytics.CustomEvent("base_selected", new Dictionary<string, object>
         {
@@ -556,7 +570,7 @@ public class Mix : MonoBehaviour
         });
     }
 
-    public void SendAnalyticsModifierSelected(string modifierSelected)
+    public void SendAnalyticsModifierSelected(int modifierSelected)
     {
         Analytics.CustomEvent("modifier_selected", new Dictionary<string, object>
         {
@@ -564,7 +578,7 @@ public class Mix : MonoBehaviour
         });
     }
 
-    public void SendAnalyticsFlavoringSelected(string flavoringSelected)
+    public void SendAnalyticsFlavoringSelected(int flavoringSelected)
     {
         Analytics.CustomEvent("flavoring_selected", new Dictionary<string, object>
         {
@@ -578,6 +592,8 @@ public class Mix : MonoBehaviour
         int customerFlavoring,
         List<int> servedRequirements,
         int servedRequirementNums,
+        int servedBase,
+        int servedModifier,
         int servedFlavoring,
         int satisfyLevel, 
         float tipsEarned,
@@ -605,6 +621,8 @@ public class Mix : MonoBehaviour
                 servedRequirements[4])
             },
             { "served_requirement_nums", servedRequirementNums },
+            { "served_base", servedBase },
+            { "served_modifier", servedModifier },
             { "served_flavoring", servedFlavoring },
             { "satisfy_level", satisfyLevel },
             { "tips_earned", tipsEarned },
