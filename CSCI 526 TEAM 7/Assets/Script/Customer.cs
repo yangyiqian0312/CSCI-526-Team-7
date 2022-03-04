@@ -12,6 +12,10 @@ public class Customer : MonoBehaviour
     private Vector2 target;
     private BoxCollider2D bc;
     private float appearing_speed = 3f;
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +39,17 @@ public class Customer : MonoBehaviour
 
     }
     
-    public void OnMouseDown (){
+    public void OnMouseEnter() {
+        Cursor.SetCursor(cursorTexture, Vector2.zero, cursorMode);
+        Debug.Log("Mouse is over GameObject.");
+    }
+
+    public void OnMouseExit() {
+        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+        Debug.Log("Done");
+    }
+
+    public void OnMouseDown () {
         SceneManager.LoadScene("Dialogue");
     }
 

@@ -3090,6 +3090,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  cursorTexture: {fileID: 2800000, guid: 96d4bfdb0d6d8c042bf8fccf6524d239, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!61 &1851558227
 BoxCollider2D:
   m_ObjectHideFlags: 0
