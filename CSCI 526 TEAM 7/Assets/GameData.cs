@@ -6,7 +6,7 @@ public static class GameData
 {
     
     public static int TutorialDone = 0;
-
+    public static int BarSceneTutorialDone = 0;
     public static float tips;
     public static int date = 1;
     public static Customer currCustomer;

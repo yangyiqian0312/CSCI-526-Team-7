@@ -50,7 +50,16 @@ public class Customer : MonoBehaviour
     }
 
     public void OnMouseDown () {
-        SceneManager.LoadScene("Dialogue");
+        Cursor.SetCursor(null, Vector2.zero, cursorMode);
+        GameObject.Find("BarDialogue").transform.GetChild(0).gameObject.SetActive(false);
+        SceneManager.LoadScene("Dialogue");   
+    }
+
+    public void ActivateBarSceneTutorial(){
+        if (GameData.BarSceneTutorialDone == 0){
+            GameObject.Find("BarDialogue").transform.GetChild(0).gameObject.SetActive(true);
+            GameData.BarSceneTutorialDone = 1;
+        }
     }
 
     public IEnumerator Sleep() {
@@ -59,6 +68,9 @@ public class Customer : MonoBehaviour
         // continue process
         float step = speed * Time.deltaTime;
         // move sprite towards the target location
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
+        transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("targetPos").transform.position, step);
+
+        yield return new WaitForSeconds(2);
+        ActivateBarSceneTutorial();
     } 
 }
