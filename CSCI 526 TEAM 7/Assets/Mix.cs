@@ -621,12 +621,12 @@ public class Mix : MonoBehaviour
                 servedRequirements[4])
             },
             { "served_requirement_nums", servedRequirementNums },
-            { "served_base", servedBase },
-            { "served_modifier", servedModifier },
-            { "served_flavoring", servedFlavoring },
+            { "served_base_modifier_flavoring", String.Format(
+                "{0} {1} {2}", servedBase, servedFlavoring, servedFlavoring)
+            },
             { "satisfy_level", satisfyLevel },
             { "tips_earned", tipsEarned },
-            { "max_tips_custumer_affordable", maxTipsCustumerAffordable }
+            { "extension_json", "{}" }  // max 10 keys allowed, this reserved for extension
         });
     }
 }
