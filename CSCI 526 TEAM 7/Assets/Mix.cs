@@ -501,14 +501,15 @@ public class Mix : MonoBehaviour
 
         Debug.Log("New Gain: " + currTip+ "\nCurr Total Tips: " + GameData.tips);
 
-        string customerFeedBack; //Need to be changed after midterm
+        string customerFeedBack = "You fufilled " + satisfiedReqs + " out of " + totalReqs + " of my requests. \n"; //Need to be changed after midterm
+
 
         if(satisfyLevel == 2){
-            customerFeedBack = "That's perfect! Here is the tip for you: $" + currTip;
+            customerFeedBack += "So that's perfect! Here is the tip for you: $" + currTip;
         }else if (satisfyLevel == 1){
-            customerFeedBack = "That's not exactly what I ordered, but I'll accept it. tip: $" + currTip;
+            customerFeedBack += "So that's not exactly what I ordered, but I'll accept it. tip: $" + currTip;
         }else{
-            customerFeedBack = "I do not like this drink. Don't expect any tip from me. tip: $0";
+            customerFeedBack += "I do not like this drink. Don't expect any tip from me. tip: $0";
         }
 
         customerFeedBack += "\nTotal tips earned: $" + GameData.tips;
