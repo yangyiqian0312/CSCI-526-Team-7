@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class TipsButton : MonoBehaviour {
     public Text prompt;
+    public Text moneyPrompt;
 
     // Start is called before the first frame update
     void Start() {
-
+        moneyPrompt.text = "CURRENT MONEY: " + GameData.tips;
     }
 
     // Update is called once per frame
@@ -25,13 +26,14 @@ public class TipsButton : MonoBehaviour {
         if (currMoney >= upgradeNeed) {
             currMoney -= upgradeNeed;
             tipsLevel++;
-            tmp = "-- PURCHASE COMPLETE --\n Remaining Money: " + currMoney;
+            tmp = "PURCHASE COMPLETE!\n CURRENT LEVEL: " + tipsLevel + "\n REMAINING MONEY: " + currMoney;
         } else {
-            tmp = "-- INVALID PURCHASE --\nYOU CAN'T AFFORD THAT";
+            tmp = "INVALID PURCHASE!!!\n YOU CAN'T AFFORD THAT";
         }
-        // "Money Remaining:" + GameData.tips
+
         GameData.tips = currMoney;
         GameData.tipsLevel = tipsLevel;
         prompt.text = tmp;
+        moneyPrompt.text = "CURRENT MONEY: " + currMoney;
     }
 }
