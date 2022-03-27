@@ -14,14 +14,17 @@ public class MainMenu : MonoBehaviour
         }
         else{
 
-            GameObject.Find("DialogueTutorial").SetActive(false);
+            if(GameObject.Find("DialogueTutorial")){
+                GameObject.Find("DialogueTutorial").SetActive(false);
+            }
+
             System.Random rnd = new System.Random();
             currID = rnd.Next(0, GameData.customerIDRange);
         }
         GameData.currCustomer = GameData.customers[currID];
 
         GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
-            = GameData.currCustomer.dialogue;
+            = GameData.currCustomer.dialogue + " \nHere's my ID.";
 
         GameObject.Find("Avatars").transform.GetChild(currID).gameObject.SetActive(true);
 
