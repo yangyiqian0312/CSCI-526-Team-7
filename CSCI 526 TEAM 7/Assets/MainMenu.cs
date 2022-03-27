@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     void Awake(){
         int currID;
         if(GameData.TutorialDone == 0){
-            currID = 6;
+            currID = 0;
         }
         else{
 
@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
             }
 
             System.Random rnd = new System.Random();
-            currID = rnd.Next(0, GameData.customerIDRange);
+            currID = rnd.Next(1, GameData.customerIDRange);
         }
         GameData.currCustomer = GameData.customers[currID];
 

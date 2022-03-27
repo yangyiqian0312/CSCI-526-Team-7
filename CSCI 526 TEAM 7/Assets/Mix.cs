@@ -501,14 +501,15 @@ public class Mix : MonoBehaviour
 
         Debug.Log("New Gain: " + currTip+ "\nCurr Total Tips: " + GameData.tips);
 
-        string customerFeedBack; //Need to be changed after midterm
+        string customerFeedBack = "You fufilled " + satisfiedReqs + " out of " + totalReqs + " of my requests. \n"; //Need to be changed after midterm
+
 
         if(satisfyLevel == 2){
-            customerFeedBack = "That's perfect! Here is the tip for you: $" + currTip;
+            customerFeedBack += "So that's perfect! Here is the tip for you: $" + currTip;
         }else if (satisfyLevel == 1){
-            customerFeedBack = "That's not exactly what I ordered, but I'll accept it. tip: $" + currTip;
+            customerFeedBack += "So that's not exactly what I ordered, but I'll accept it. tip: $" + currTip;
         }else{
-            customerFeedBack = "I do not like this drink. Don't expect any tip from me. tip: $0";
+            customerFeedBack += "I do not like this drink. Don't expect any tip from me. tip: $0";
         }
 
         customerFeedBack += "\nTotal tips earned: $" + GameData.tips;
@@ -621,12 +622,12 @@ public class Mix : MonoBehaviour
                 servedRequirements[4])
             },
             { "served_requirement_nums", servedRequirementNums },
-            { "served_base", servedBase },
-            { "served_modifier", servedModifier },
-            { "served_flavoring", servedFlavoring },
+            { "served_base_modifier_flavoring", String.Format(
+                "{0} {1} {2}", servedBase, servedFlavoring, servedFlavoring)
+            },
             { "satisfy_level", satisfyLevel },
             { "tips_earned", tipsEarned },
-            { "max_tips_custumer_affordable", maxTipsCustumerAffordable }
+            { "extension_json", "{}" }  // max 10 keys allowed, this reserved for extension
         });
     }
 }
