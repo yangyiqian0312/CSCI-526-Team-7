@@ -13,7 +13,7 @@ public class Failure : MonoBehaviour
 
         GameData.day = 1;
 
-        GameData.timeRemaining = 30;
+        GameData.timeRemaining = 90;
 
         SceneManager.LoadScene("MainMenu");
     }
