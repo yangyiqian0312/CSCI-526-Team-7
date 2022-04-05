@@ -498,6 +498,7 @@ public class Mix : MonoBehaviour
         }
         
         GameData.tips += currTip;
+        GameData.tipsEarnedToday += currTip;
 
         Debug.Log("New Gain: " + currTip+ "\nCurr Total Tips: " + GameData.tips);
 

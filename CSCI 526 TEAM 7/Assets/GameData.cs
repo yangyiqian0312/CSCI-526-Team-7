@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//TODO:
+//Change back TutorialDone in GameData.cs
+//Change back probability of invalid ID in MainMenu.cs
+//Change back timeRemaining to 90 seconds in Both GameData.cs and update in DaySummary.cs, Failure.cs
 public static class GameData
 {
-    
-    public static int TutorialDone = 0;
+    public static int TutorialDone = 1;
     public static int BarSceneTutorialDone = 0;
     public static float tips;
     public static int date = 1;
     public static Customer currCustomer;
+    public static int currCustomerId;
     public static int customerIDRange = 12;
     public static int upgradeTipsNeed = 2;
     public static int tipsLevel = 0;
+    public static int day = 0;
+    public static int firstDate = 26;
+    public static float tipsEarnedToday = 0;
+    public static int pause = 0;
+    public static double timeRemaining = 30;
 
 
     public class Customer{
@@ -36,8 +46,19 @@ public static class GameData
         public int specificCocktail;
         public string dialogue;
 
+        public string gender = "default";
+        public string invalidGender  = "default";
+        public string birthday  = "default";
+        public string invalidBirthday  = "default";
+        public string hairColor  = "default";
+        public string invalidHairColor  = "default";
+        public string expirationDate  = "default";
+        public string invalidExpirationDate  = "default";
+
+
         public Customer(int currTip, int currSpicy, int currSweet, int currSour, int currAromatic, int currStrength,
-            int currFlavoring, string currName, int currRequirementNum, int currSpecificCocktail, string currDialogue){
+            int currFlavoring, string currName, int currRequirementNum, int currSpecificCocktail, 
+            string currDialogue){
                 this.customTip = currTip;
 
                 this.requirements.Add(currSpicy);
@@ -54,14 +75,58 @@ public static class GameData
                 this.requirementNum = currRequirementNum;
                 this.dialogue = currDialogue;
         }
+
+
+        public Customer(int currTip, int currSpicy, int currSweet, int currSour, int currAromatic, int currStrength,
+            int currFlavoring, string currName, int currRequirementNum, int currSpecificCocktail, 
+            string currDialogue, 
+
+            string currGender, string currBirthday, string currHairColor, 
+            string currExpirationDate, 
+
+            string currInvalidGender, string currInvalidBirthday,string currInvalidHairColor, 
+            string currInvalidExpirationDate){
+
+                this.customTip = currTip;
+
+                this.requirements.Add(currSpicy);
+                this.requirements.Add(currSweet);
+                this.requirements.Add(currSour);
+                this.requirements.Add(currAromatic);
+                this.requirements.Add(currStrength);
+
+                this.flavoring = currFlavoring;
+
+                this.specificCocktail = currSpecificCocktail;
+                this.name = currName;
+
+                this.requirementNum = currRequirementNum;
+                this.dialogue = currDialogue;
+
+                this.gender = currGender;
+                this.invalidGender = currInvalidGender;
+
+                this.birthday = currBirthday;
+                this.invalidBirthday = currInvalidBirthday;
+
+                this.hairColor = currHairColor;
+                this.invalidHairColor = currInvalidHairColor;
+
+                this.expirationDate = currExpirationDate;
+                this.invalidExpirationDate = currInvalidExpirationDate;
+        }
     }
 
 
     public static Customer customer1 = new Customer(20, 0, 1, 0, 0, 0, 0, "Frank", 2, -1,
-        "I would like a <b><#FF00FD>Sweet</color></b> drink, topped off with <b>Fresh Cherry</b>.");
+        "I would like a <b><#FF00FD>Sweet</color></b> drink, topped off with <b>Fresh Cherry</b>.",
+        "M", "01/10/2000","Brown", "01/01/2025",
+        "M", "01/10/2004","Brown", "01/01/2025");
 
     public static Customer customer2 = new Customer(10, 1, -1, 0, 0, 0, -1, "Pedro", 2, -1,
-         "I'm in the mood for a <b><#FF5F00>Spicy</color></b> drink, but please make it <b>NOT <#FF00FD>Sweet</color></b>. Can you do that for me?");
+         "I'm in the mood for a <b><#FF5F00>Spicy</color></b> drink, but please make it <b>NOT <#FF00FD>Sweet</color></b>. Can you do that for me?",
+         "F", "02/15/1997", "Blue", "02/01/2025",
+         "F", "02/15/1997", "Red", "02/01/2025");
 
     public static Customer customer3 = new Customer(50, 0, 0, 0, 0, 1, -1, "Kelsey", 1, -1,
         "Just give me something <b><#FF0B00>Strong</color></b> !");
@@ -96,6 +161,6 @@ public static class GameData
     public static List<Customer> customers = new List<Customer>() {customer1, customer2, customer3, 
         customer4, customer5, customer6, customer7, customer8, customer9, customer10, customer11, customer12};
 
-
+    public static List<float> goals = new List<float>(){0f,20f,30f,40f,50f};
 
 }
