@@ -10,7 +10,7 @@ public class DaySummary : MonoBehaviour
         
         GameData.tipsEarnedToday = 0;
 
-        GameData.timeRemaining = 30;
+        GameData.timeRemaining = 90;
 
         GameData.day ++;
 
