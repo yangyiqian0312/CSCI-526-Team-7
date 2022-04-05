@@ -6,6 +6,7 @@ using UnityEngine;
 //TODO:
 //Change back TutorialDone in GameData.cs
 //Change back probability of invalid ID in MainMenu.cs
+//Change back timeRemaining to 90 seconds in Both GameData.cs and update in DaySummary.cs
 public static class GameData
 {
     public static int TutorialDone = 1;
@@ -17,6 +18,11 @@ public static class GameData
     public static int customerIDRange = 12;
     public static int upgradeTipsNeed = 2;
     public static int tipsLevel = 0;
+    public static int day = 0;
+    public static float tipsEarnedToday = 0;
+    public static int pause = 1;
+    public static double timeRemaining = 15;
+
 
     public class Customer{
         public float customTip;
@@ -153,5 +159,7 @@ public static class GameData
 
     public static List<Customer> customers = new List<Customer>() {customer1, customer2, customer3, 
         customer4, customer5, customer6, customer7, customer8, customer9, customer10, customer11, customer12};
+
+    public static List<float> goals = new List<float>(){20f,30f,40f,50f};
 
 }

@@ -7,6 +7,14 @@ using System;
 
 public class MainMenu : MonoBehaviour
 {
+    public void pauseTimer(){
+        GameData.pause = 1;
+    }
+
+    public void startTimer(){
+        GameData.pause = 0;
+    }
+    
     void Awake(){
         int currID;
 
