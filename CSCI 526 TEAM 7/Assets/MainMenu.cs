@@ -131,6 +131,7 @@ public class MainMenu : MonoBehaviour
             = "That ID was invalid! I'm deducting 10 points from your tips.";
 
         GameData.tips -= 10;
+        GameData.tipsEarnedToday -= 10;
     }
 
     public void invalidRejectButtonUpdate(){
@@ -138,6 +139,7 @@ public class MainMenu : MonoBehaviour
             = "Good job for spotting an invalid ID! I'm giving you a 10 points bonus for this.";
 
         GameData.tips += 10;
+        GameData.tipsEarnedToday += 10;
     }
 
 

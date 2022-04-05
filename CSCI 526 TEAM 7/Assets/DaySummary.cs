@@ -10,7 +10,7 @@ public class DaySummary : MonoBehaviour
         
         GameData.tipsEarnedToday = 0;
 
-        GameData.timeRemaining = 15;
+        GameData.timeRemaining = 30;
 
         GameData.day ++;
 
@@ -25,7 +25,7 @@ public class DaySummary : MonoBehaviour
             GameData.tips.ToString();
 
         GameObject.Find("TomorrowGoalValueText").GetComponent<TMPro.TextMeshProUGUI>().text = 
-            GameData.goals[GameData.day].ToString();
+            GameData.goals[GameData.day + 1].ToString();
 
 
         
