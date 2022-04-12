@@ -22,6 +22,9 @@ public class Mix : MonoBehaviour
 
     public void Awake(){
         updateTempPropertyText();
+
+        GameObject.Find("MixCustomerRequirement").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "\"" +GameData.currCustomer.dialogue + "\"";
     }
 
     public int currentBaseNumber = 0;

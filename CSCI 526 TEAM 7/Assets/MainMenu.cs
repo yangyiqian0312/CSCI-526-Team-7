@@ -42,10 +42,22 @@ public class MainMenu : MonoBehaviour
                 GameObject.Find("DialogueTutorial").SetActive(false);
             }
 
+            
             System.Random rnd = new System.Random();
             System.Random rndInvalid = new System.Random();
 
-            currID = rnd.Next(1, GameData.customerIDRange);
+            do{
+
+                currID = rnd.Next(1, GameData.customerIDRange);
+
+                if(GameData.todayOccured.Count >= 10){
+                    GameData.todayOccured = new HashSet<int>();
+                    break;
+                }
+
+            }while(GameData.todayOccured.Contains(currID));
+
+            GameData.todayOccured.Add(currID);
 
             // 70% probability the ID is valid (Which means currValidNum >= 4)
             int currValidNum = rndInvalid.Next(1, 11);
@@ -140,6 +152,11 @@ public class MainMenu : MonoBehaviour
 
         GameData.tips += 10;
         GameData.tipsEarnedToday += 10;
+    }
+
+    public void sureButtonUpdateDialogue(){
+        GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = GameData.currCustomer.dialogue;
     }
 
 
