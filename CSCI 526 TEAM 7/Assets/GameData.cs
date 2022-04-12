@@ -11,7 +11,7 @@ using UnityEngine;
 //Change back timeRemaining to 90 seconds in Both GameData.cs and update in DaySummary.cs, Failure.cs
 public static class GameData
 {
-    public static int TutorialDone = 1;
+    public static int TutorialDone = 0;
     public static int BarSceneTutorialDone = 0;
     public static float tips = 0;
     public static int date = 1;
