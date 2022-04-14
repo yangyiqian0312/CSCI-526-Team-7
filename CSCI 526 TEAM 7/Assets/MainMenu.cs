@@ -136,7 +136,25 @@ public class MainMenu : MonoBehaviour
         GameObject.Find("MainMenu").transform.GetChild(5).gameObject.SetActive(true);
 
         //Point out the invalid areas
-        
+        int firstInvalid = GameData.currCustomer.firstInvalid;
+        int secondInvalid = GameData.currCustomer.secondInvalid;
+
+        if (firstInvalid == 0 || secondInvalid == 0){
+            GameObject.Find("Gender").GetComponent<TMPro.TextMeshProUGUI>().text 
+                = "Gender: <b><#FF0000>" + GameData.currCustomer.invalidGender + "</color></b>";
+        }
+        if(firstInvalid == 1 || secondInvalid == 1){
+            GameObject.Find("Birthday").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "Date of Birth: \n\n<b><#FF0000>" + GameData.currCustomer.invalidBirthday+ "</color></b>";
+        }
+        if(firstInvalid == 2 || secondInvalid == 2){
+            GameObject.Find("HairColor").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "Hair Color: <b><#FF0000>" + GameData.currCustomer.invalidHairColor+ "</color></b>";
+        }
+        if(firstInvalid == 3 || secondInvalid == 3){
+            GameObject.Find("ExpirationDate").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "Expiration Date: \n\n<b><#FF0000>" + GameData.currCustomer.invalidExpirationDate+ "</color></b>";
+        }
     }
 
     public void invalidYesButtonUpdate(){
