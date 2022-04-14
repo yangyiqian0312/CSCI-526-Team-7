@@ -95,13 +95,13 @@ public class MainMenu : MonoBehaviour
             = "Gender: " + (currInvalid == 0 ? GameData.currCustomer.gender : GameData.currCustomer.invalidGender);
 
         GameObject.Find("Birthday").GetComponent<TMPro.TextMeshProUGUI>().text 
-            = "Date of Birth: \n" + (currInvalid == 0 ? GameData.currCustomer.birthday : GameData.currCustomer.invalidBirthday);
+            = "Date of Birth: \n\n" + (currInvalid == 0 ? GameData.currCustomer.birthday : GameData.currCustomer.invalidBirthday);
         
         GameObject.Find("HairColor").GetComponent<TMPro.TextMeshProUGUI>().text 
             = "Hair Color: " + (currInvalid == 0 ? GameData.currCustomer.hairColor : GameData.currCustomer.invalidHairColor);
 
         GameObject.Find("ExpirationDate").GetComponent<TMPro.TextMeshProUGUI>().text 
-            = "Expiration Date: \n" + (currInvalid == 0 ? GameData.currCustomer.expirationDate : GameData.currCustomer.invalidExpirationDate);
+            = "Expiration Date: \n\n" + (currInvalid == 0 ? GameData.currCustomer.expirationDate : GameData.currCustomer.invalidExpirationDate);
 
 
 
@@ -135,6 +135,7 @@ public class MainMenu : MonoBehaviour
         //Set the InvalidLeaveButton active
         GameObject.Find("MainMenu").transform.GetChild(5).gameObject.SetActive(true);
 
+        //Point out the invalid areas
         
     }
 
