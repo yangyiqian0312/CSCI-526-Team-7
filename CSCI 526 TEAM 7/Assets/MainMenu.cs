@@ -42,10 +42,22 @@ public class MainMenu : MonoBehaviour
                 GameObject.Find("DialogueTutorial").SetActive(false);
             }
 
+            
             System.Random rnd = new System.Random();
             System.Random rndInvalid = new System.Random();
 
-            currID = rnd.Next(1, GameData.customerIDRange);
+            do{
+
+                currID = rnd.Next(1, GameData.customerIDRange);
+
+                if(GameData.todayOccured.Count >= 10){
+                    GameData.todayOccured = new HashSet<int>();
+                    break;
+                }
+
+            }while(GameData.todayOccured.Contains(currID));
+
+            GameData.todayOccured.Add(currID);
 
             // 70% probability the ID is valid (Which means currValidNum >= 4)
             int currValidNum = rndInvalid.Next(1, 11);
@@ -83,13 +95,13 @@ public class MainMenu : MonoBehaviour
             = "Gender: " + (currInvalid == 0 ? GameData.currCustomer.gender : GameData.currCustomer.invalidGender);
 
         GameObject.Find("Birthday").GetComponent<TMPro.TextMeshProUGUI>().text 
-            = "Date of Birth: \n" + (currInvalid == 0 ? GameData.currCustomer.birthday : GameData.currCustomer.invalidBirthday);
+            = "Date of Birth: \n\n" + (currInvalid == 0 ? GameData.currCustomer.birthday : GameData.currCustomer.invalidBirthday);
         
         GameObject.Find("HairColor").GetComponent<TMPro.TextMeshProUGUI>().text 
             = "Hair Color: " + (currInvalid == 0 ? GameData.currCustomer.hairColor : GameData.currCustomer.invalidHairColor);
 
         GameObject.Find("ExpirationDate").GetComponent<TMPro.TextMeshProUGUI>().text 
-            = "Expiration Date: \n" + (currInvalid == 0 ? GameData.currCustomer.expirationDate : GameData.currCustomer.invalidExpirationDate);
+            = "Expiration Date: \n\n" + (currInvalid == 0 ? GameData.currCustomer.expirationDate : GameData.currCustomer.invalidExpirationDate);
 
 
 
@@ -123,7 +135,26 @@ public class MainMenu : MonoBehaviour
         //Set the InvalidLeaveButton active
         GameObject.Find("MainMenu").transform.GetChild(5).gameObject.SetActive(true);
 
-        
+        //Point out the invalid areas
+        int firstInvalid = GameData.currCustomer.firstInvalid;
+        int secondInvalid = GameData.currCustomer.secondInvalid;
+
+        if (firstInvalid == 0 || secondInvalid == 0){
+            GameObject.Find("Gender").GetComponent<TMPro.TextMeshProUGUI>().text 
+                = "Gender: <b><#FF0000>" + GameData.currCustomer.invalidGender + "</color></b>";
+        }
+        if(firstInvalid == 1 || secondInvalid == 1){
+            GameObject.Find("Birthday").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "Date of Birth: \n\n<b><#FF0000>" + GameData.currCustomer.invalidBirthday+ "</color></b>";
+        }
+        if(firstInvalid == 2 || secondInvalid == 2){
+            GameObject.Find("HairColor").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "Hair Color: <b><#FF0000>" + GameData.currCustomer.invalidHairColor+ "</color></b>";
+        }
+        if(firstInvalid == 3 || secondInvalid == 3){
+            GameObject.Find("ExpirationDate").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "Expiration Date: \n\n<b><#FF0000>" + GameData.currCustomer.invalidExpirationDate+ "</color></b>";
+        }
     }
 
     public void invalidYesButtonUpdate(){
@@ -140,6 +171,11 @@ public class MainMenu : MonoBehaviour
 
         GameData.tips += 10;
         GameData.tipsEarnedToday += 10;
+    }
+
+    public void sureButtonUpdateDialogue(){
+        GameObject.Find("CustomerDialogue").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = GameData.currCustomer.dialogue;
     }
 
 

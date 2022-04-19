@@ -14,6 +14,8 @@ public class DaySummary : MonoBehaviour
 
         GameData.day ++;
 
+        GameData.todayOccured = new HashSet<int>();
+
         SceneManager.LoadScene("Bar");
     }
 

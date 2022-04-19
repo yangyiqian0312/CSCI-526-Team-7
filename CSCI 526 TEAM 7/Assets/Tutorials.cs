@@ -17,6 +17,10 @@ public class Tutorials : MonoBehaviour
         }
     }
 
+    public void NotebookArrowDisapper(){
+        GameObject.Find("Tutorials").transform.GetChild(1).gameObject.SetActive(false);
+    }
+
     public void ActivateMenuPropertyTutorial(){
         if (GameData.TutorialDone == 0){
             GameObject.Find("Tutorials").transform.GetChild(3).gameObject.SetActive(true);
@@ -29,6 +33,11 @@ public class Tutorials : MonoBehaviour
                 GameObject.Find("Tutorials").transform.GetChild(4).gameObject.SetActive(true);
             }
         }
+    }
+
+
+    public void MixArrowDisapper(){
+        GameObject.Find("Tutorials").transform.GetChild(4).gameObject.SetActive(false);
     }
 
     public void ActivateMixBaseTutorial(){

@@ -22,6 +22,9 @@ public class Mix : MonoBehaviour
 
     public void Awake(){
         updateTempPropertyText();
+
+        GameObject.Find("MixCustomerRequirement").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "\"" +GameData.currCustomer.dialogue + "\"";
     }
 
     public int currentBaseNumber = 0;
@@ -88,7 +91,7 @@ public class Mix : MonoBehaviour
         GameObject.Find("AromaticSlider").GetComponent<Slider>().value = ((float)mixProps[3] / 5);
         GameObject.Find("StrengthSlider").GetComponent<Slider>().value = ((float)mixProps[4] / 5);
 
-        string CurrentPropertyText = "Your drink is: \n";
+        string CurrentPropertyText = "Properties your drink has: \n";
 
         CurrentPropertyText += (mixProps[0] >= 5 ? "<b><#FF5F00>Spicy</color></b>\n" : "");
         CurrentPropertyText += (mixProps[1] >= 5 ? "<b><#FF00FD>Sweet</color></b>\n" : "");
