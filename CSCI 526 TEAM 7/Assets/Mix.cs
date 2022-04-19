@@ -9,7 +9,7 @@ using UnityEngine.Analytics;
 public class Mix : MonoBehaviour
 {
 
-     // idx0 = spicy
+    // idx0 = spicy
     // idx1 = sweet
     // idx2 = sour
     // idx3 = aromatic
@@ -77,9 +77,8 @@ public class Mix : MonoBehaviour
         string tempText = "Spicy: " + mixProps[0] + "\nSweet: " + mixProps[1] +"\nSour: " + mixProps[2]
             + "\nAromatic: " + mixProps[3] +"\nStrength: " + mixProps[4] + "\nFlavoring: " + (flavoringAdded+1);
 
-        Debug.Log("Log Customer Name!!!!!!!! "+GameData.customer1.name);
+        Debug.Log("Current customer:" + GameData.currCustomer.name);
 
-        
         // GameObject.Find("Temp").GetComponent<TMPro.TextMeshProUGUI>().text = tempText;
 
         GameObject.Find("SpicySlider").GetComponent<Slider>().value = ((float)mixProps[0] / 5);
@@ -434,6 +433,7 @@ public class Mix : MonoBehaviour
         currentBaseNumber ++;
     }
 
+    // This function is not in use!!!
     public void toNextScene(){
         //Debug.Log("Log after mix: "+ GameData.tips);
         GameData.date += 1;

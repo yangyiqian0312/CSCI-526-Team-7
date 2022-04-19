@@ -23,7 +23,8 @@ public static class GameData
     public static float tipsEarnedToday = 0;
     public static int pause = 0;
     public static double timeRemaining = 90;
-
+    public static bool newDay = true;
+    public static int customerNumber = 0;
 
     public class Customer{
         public float customTip;

@@ -64,6 +64,7 @@ public class MainMenu : MonoBehaviour
                 GameObject.Find("RejectButton").SetActive(false);
             }
         }
+        
         GameData.currCustomer = GameData.customers[currID];
         GameData.currCustomerId = currID;
 

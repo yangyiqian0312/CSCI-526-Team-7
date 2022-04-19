@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
     public void newWindow(){
+        GameData.newDay = false;
         SceneManager.LoadScene("Bar");
     }
-
-    
 }
