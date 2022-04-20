@@ -48,13 +48,15 @@ public class Mix : MonoBehaviour
 
     //Add the property of the current chosen modifier
     public void UpdatePropertyByModifier(){
-        for(int i = 0; i < 5; i++){
+        for (int i = 0; i < 5; i++) {
             mixProps[i] += currentModifierProperty[i];
         }
     }
 
     public void setTutorialDone(){
-        GameData.TutorialDone = 1;
+        if (GameData.tips > 0) {
+            GameData.TutorialDone = 1;
+        }
     }
 
     public void UpdateSpecificCocktail(){

@@ -125,8 +125,8 @@ public class MainMenu : MonoBehaviour
         //Set boss active
         GameObject.Find("Avatars").transform.GetChild(GameData.customerIDRange).gameObject.SetActive(true);
 
-        //Set current customer inactive
-        GameObject.Find("Avatars").transform.GetChild(GameData.currCustomerId).gameObject.SetActive(false);
+        // //Set current customer inactive
+        // GameObject.Find("Avatars").transform.GetChild(GameData.currCustomerId).gameObject.SetActive(false);
 
         //Update the name of speaker(boss)
         GameObject.Find("CustomerName").GetComponent<TMPro.TextMeshProUGUI>().text 
