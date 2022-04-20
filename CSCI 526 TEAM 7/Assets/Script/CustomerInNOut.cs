@@ -85,11 +85,16 @@ public class CustomerInNOut : MonoBehaviour
         float step = speed * Time.deltaTime;
         spriteRenderer.sprite = frontsp;
         // move sprite towards the target location
-        transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("exit").transform.position, step);
+        if(GameData.customerExiting){
+            transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("exit").transform.position, step);
+        }
         yield return new WaitForSeconds(2);
-        if (customer.name == "customer1")   transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("targetPos1").transform.position, step);
-        else if (customer.name == "customer2")   transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("targetPos2").transform.position, step);
-        else if (customer.name == "customer3")   transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("targetPos3").transform.position, step);
+        // if (customer.name == "customer1"){
+        //     Debug.Log("Inside customer 1");
+        //     transform.position = Vector2.MoveTowards(transform.position, GameObject.Find("targetPos1").transform.position, step);
+        // }   
+        // else if (customer.name == "customer2")   transform.position = Vector2.MoveTowards(GameObject.Find("exit").transform.position, GameObject.Find("targetPos2").transform.position, step);
+        // else if (customer.name == "customer3")   transform.position = Vector2.MoveTowards(GameObject.Find("exit").transform.position, GameObject.Find("targetPos3").transform.position, step);
         yield return new WaitForSeconds(2);
     }
 
@@ -108,6 +113,7 @@ public class CustomerInNOut : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, cursorMode);
         GameObject.Find("BarDialogue").transform.GetChild(0).gameObject.SetActive(false);
         SceneManager.LoadScene("Dialogue");   
+        GameData.customerExiting = true;
     }
 
     public void ActivateBarSceneTutorial() {

@@ -26,6 +26,8 @@ public static class GameData
     public static bool newDay = true;
     public static int customerNumber = 0;
 
+    public static bool customerExiting = true;
+
     public class Customer{
         public float customTip;
 
