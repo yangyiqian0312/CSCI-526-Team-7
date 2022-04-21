@@ -132,6 +132,7 @@ public class CustomerInNOut : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, cursorMode);
         GameObject.Find("BarDialogue").transform.GetChild(0).gameObject.SetActive(false);
         SceneManager.LoadScene("Dialogue");   
+        GameData.customerExiting = true;
     }
 
     public void ActivateBarSceneTutorial() {
