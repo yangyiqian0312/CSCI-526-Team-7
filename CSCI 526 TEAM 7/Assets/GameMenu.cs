@@ -6,7 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameMenu : MonoBehaviour
 {
     public void newWindow(){
+
         GameData.newDay = false;
-        SceneManager.LoadScene("Bar");
+
+        if(GameData.day ==0 && GameData.TutorialDone == 1){
+            SceneManager.LoadScene("EndOfDay");
+        }else{
+            SceneManager.LoadScene("Bar");
+        }
     }
 }

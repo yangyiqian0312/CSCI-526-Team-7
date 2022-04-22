@@ -179,10 +179,17 @@ public class Timer : MonoBehaviour
     }
 
     public void jumpToSummary(){
-        if(GameData.day == 0 || (GameData.tips >= GameData.goals[GameData.day])){
+        if(GameData.day == 0){
             SceneManager.LoadScene("EndOfDay");
-        }else{
+        }else if (GameData.tips < GameData.goals[GameData.day]){
             SceneManager.LoadScene("Failure");
+            Debug.Log("Go to Failure scene");
+        }else if (GameData.day == 4){
+            SceneManager.LoadScene("Ending");
+            Debug.Log("Go to Ending scene");
+        }else{
+            SceneManager.LoadScene("EndOfDay");
+            Debug.Log("Go to Normal scene");
         }
     }
 

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Tutorials : MonoBehaviour
 {
+    public void changeBossDialogue(){
+        GameObject.Find("BossText").GetComponent<TMPro.TextMeshProUGUI>().text 
+                = "By the way I don't want to get into troulbe, so make sure you REJECT those under 21 or with a fake ID!";
+    }
+
+
     public void ActivateInsideMenuTutorial(){
         if (GameData.TutorialDone == 0){
             GameObject.Find("Tutorials").transform.GetChild(2).gameObject.SetActive(true);
@@ -15,6 +21,10 @@ public class Tutorials : MonoBehaviour
         if (GameData.TutorialDone == 0){
             GameObject.Find("Tutorials").transform.GetChild(1).gameObject.SetActive(true);
         }
+    }
+
+    public void NotebookArrowDisapper(){
+        GameObject.Find("Tutorials").transform.GetChild(1).gameObject.SetActive(false);
     }
 
     public void ActivateMenuPropertyTutorial(){
@@ -29,6 +39,11 @@ public class Tutorials : MonoBehaviour
                 GameObject.Find("Tutorials").transform.GetChild(4).gameObject.SetActive(true);
             }
         }
+    }
+
+
+    public void MixArrowDisapper(){
+        GameObject.Find("Tutorials").transform.GetChild(4).gameObject.SetActive(false);
     }
 
     public void ActivateMixBaseTutorial(){

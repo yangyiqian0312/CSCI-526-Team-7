@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Failure : MonoBehaviour
+public class Ending : MonoBehaviour
 {
-   public void playAgain(){
+    public void playAgain(){
         
         GameData.tips = 0f;
 
@@ -14,18 +14,14 @@ public class Failure : MonoBehaviour
         GameData.day = 1;
 
         GameData.timeRemaining = 90;
-        
+
         GameData.todayOccured = new HashSet<int>();
 
         SceneManager.LoadScene("MainMenu");
     }
 
     void Awake(){
-        GameObject.Find("FailureTotalTipValueText").GetComponent<TMPro.TextMeshProUGUI>().text = 
-            GameData.tips.ToString();
-
-        GameObject.Find("GoalValueText").GetComponent<TMPro.TextMeshProUGUI>().text = 
-            GameData.goals[GameData.day].ToString();
-        
+        GameObject.Find("EndingTotalTipValueText").GetComponent<TMPro.TextMeshProUGUI>().text
+            = GameData.tips.ToString();
     }
 }
