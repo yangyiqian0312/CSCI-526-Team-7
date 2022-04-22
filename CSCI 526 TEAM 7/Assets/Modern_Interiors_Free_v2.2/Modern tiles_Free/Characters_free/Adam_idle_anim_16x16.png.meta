@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -688,6 +689,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Adam_idle_anim_16x16_2: 1838652237953772777
+      Adam_idle_anim_16x16_19: 8720156976192022513
+      Adam_idle_anim_16x16_6: 3924495430739329193
+      Adam_idle_anim_16x16_22: -2582214817924989315
+      Adam_idle_anim_16x16_21: 6588453685269842768
+      Adam_idle_anim_16x16_0: 7578198866938581977
+      Adam_idle_anim_16x16_9: 1030704934574023511
+      Adam_idle_anim_16x16_14: -8045394887332526331
+      Adam_idle_anim_16x16_10: -4918753047046272042
+      Adam_idle_anim_16x16_16: 2554269049828321783
+      Adam_idle_anim_16x16_1: -850842840856318982
+      Adam_idle_anim_16x16_11: -6747632544365331936
+      Adam_idle_anim_16x16_17: 9126780934856708680
+      Adam_idle_anim_16x16_20: 8791751197658127494
+      Adam_idle_anim_16x16_4: -287943490125201394
+      Adam_idle_anim_16x16_18: -8074536668084804982
+      Adam_idle_anim_16x16_23: 267805483590464283
+      Adam_idle_anim_16x16_5: 9058204351553933552
+      Adam_idle_anim_16x16_3: -8532533089747192197
+      Adam_idle_anim_16x16_12: 7421199659055721712
+      Adam_idle_anim_16x16_7: 3845863556881282207
+      Adam_idle_anim_16x16_8: -7201428031762626152
+      Adam_idle_anim_16x16_15: -7456093206457584066
+      Adam_idle_anim_16x16_13: -6578230457401998139
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
