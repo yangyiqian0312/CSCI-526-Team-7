@@ -24,9 +24,14 @@ public static class GameData
     public static int firstDate = 26;
     public static float tipsEarnedToday = 0;
     public static int pause = 0;
+  
+    public static bool newDay = true;
+    public static int customerNumber = 0;
+  
     public static double timeRemaining = 600;
     public static HashSet<int> todayOccured = new HashSet<int>();
 
+    public static bool customerExiting = true;
 
     public class Customer{
         public float customTip;

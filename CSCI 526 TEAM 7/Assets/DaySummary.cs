@@ -12,8 +12,10 @@ public class DaySummary : MonoBehaviour
 
         GameData.timeRemaining = 90;
 
-        GameData.day ++;
+        GameData.day++;
 
+        GameData.newDay = true;
+        
         GameData.todayOccured = new HashSet<int>();
 
         SceneManager.LoadScene("Bar");
