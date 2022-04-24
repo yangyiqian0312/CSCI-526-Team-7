@@ -236,6 +236,6 @@ public static class GameData
         customer4, customer5, customer6, customer7, customer8, customer9, customer10, customer11, customer12,
         customer13, customer14, customer15, customer16, customer17, customer18, customer19, customer20};
 
-    public static List<float> goals = new List<float>(){0f,20f,30f,40f,50f};
+    public static List<float> goals = new List<float>(){0f,40f,90f,150f,220f};
 
 }
