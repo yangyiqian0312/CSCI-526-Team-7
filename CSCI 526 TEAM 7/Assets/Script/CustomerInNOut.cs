@@ -94,17 +94,15 @@ public class CustomerInNOut : MonoBehaviour
         // move sprite towards the target location
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);   
         if (!isBack && Vector2.Distance(transform.position, GameObject.Find(targetPos).transform.position) < 0.2f) {        
-//            spriteRenderer.sprite = frontsp1;
-            animator.SetBool("Back", false);            
-//            animator.SetBool("Front", true);
+            animator.SetBool("Front", true);            
+            animator.SetBool("Back", false);    
             Debug.Log("Going OUT");
             target = GameObject.Find("exit").transform.position;
         }
         else if (Vector2.Distance(transform.position, GameObject.Find("exit").transform.position) < 0.2f) {
             if (waitTime <= 0) {
-//                spriteRenderer.sprite = backsp1;
                 animator.SetBool("Back", true);
-//                animator.SetBool("Front", false);
+                animator.SetBool("Front", false);    
                 Debug.Log("Going IN");
                 target = GameObject.Find(targetPos).transform.position;
                 isBack = true;
