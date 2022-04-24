@@ -6,7 +6,7 @@ public class Tutorials : MonoBehaviour
 {
     public void changeBossDialogue(){
         GameObject.Find("BossText").GetComponent<TMPro.TextMeshProUGUI>().text 
-                = "By the way I don't want to get into troulbe, so make sure you REJECT those under 21 or with a fake ID!";
+                = "By the way I don't want to get into trouble, so make sure you REJECT those under 21 or with a fake ID!";
     }
 
 
