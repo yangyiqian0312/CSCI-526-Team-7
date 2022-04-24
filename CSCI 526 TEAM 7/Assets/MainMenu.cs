@@ -147,6 +147,7 @@ public class MainMenu : MonoBehaviour
         if(firstInvalid == 1 || secondInvalid == 1){
             GameObject.Find("Birthday").GetComponent<TMPro.TextMeshProUGUI>().text 
             = "Date of Birth: \n\n<b><#FF0000>" + GameData.currCustomer.invalidBirthday+ "</color></b>";
+            changeHeaderColor();
         }
         if(firstInvalid == 2 || secondInvalid == 2){
             GameObject.Find("HairColor").GetComponent<TMPro.TextMeshProUGUI>().text 
@@ -155,6 +156,7 @@ public class MainMenu : MonoBehaviour
         if(firstInvalid == 3 || secondInvalid == 3){
             GameObject.Find("ExpirationDate").GetComponent<TMPro.TextMeshProUGUI>().text 
             = "Expiration Date: \n\n<b><#FF0000>" + GameData.currCustomer.invalidExpirationDate+ "</color></b>";
+            changeHeaderColor();
         }
     }
 
@@ -179,6 +181,10 @@ public class MainMenu : MonoBehaviour
             = GameData.currCustomer.dialogue;
     }
 
-
+    public void changeHeaderColor(){
+        string s = GameObject.Find("HeaderDate").GetComponent<TMPro.TextMeshProUGUI>().text;
+        GameObject.Find("HeaderDate").GetComponent<TMPro.TextMeshProUGUI>().text 
+            = "<b><#FF0000>" + s + "</color></b>";
+    }
     
 }
