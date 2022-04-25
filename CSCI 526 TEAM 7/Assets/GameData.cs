@@ -136,12 +136,12 @@ public static class GameData
         "M", "01/10/2000","Brown", "01/01/2025",
         "M", "01/10/2004","Brown", "01/01/2025", 1, -1);
 
-    public static Customer customer2 = new Customer(10, 1, -1, 0, 0, 0, -1, "Pedro", 2, -1,
+    public static Customer customer2 = new Customer(30, 1, -1, 0, 0, 0, -1, "Pedro", 2, -1,
          "I'm in the mood for a <b><#FF5F00>Spicy</color></b> drink, but please make it <b>NOT <#FF00FD>Sweet</color></b>. Can you do that for me?",
          "F", "02/15/1997", "Brown", "02/01/2025",
          "F", "02/15/1997", "Blue", "02/01/2025", 2, -1);
 
-    public static Customer customer3 = new Customer(30, 0, 0, 0, 0, 1, -1, "Kelsey", 1, -1,
+    public static Customer customer3 = new Customer(20, 0, 0, 0, 0, 1, -1, "Kelsey", 1, -1,
         "Just give me something <b><#FF0B00>Strong</color></b> !",
         "F", "04/01/1999", "Brown", "04/01/2024",
         "F", "04/01/1999", "Brown", "04/01/2020", 3, -1);
@@ -151,7 +151,7 @@ public static class GameData
         "F", "05/05/1995", "Blonde", "05/01/2025",
         "F", "05/05/2004", "Blonde", "05/01/2025", 1, -1);
 
-    public static Customer customer5 = new Customer(10, 0, 1, -1, 0, 0, -1, "Zhou", 2, -1,
+    public static Customer customer5 = new Customer(30, 0, 1, -1, 0, 0, -1, "Zhou", 2, -1,
         "Can you make me a <b><#FF00FD>Sweet</color></b> cocktail, but <b>NOT <#1ABC77>Sour</color></b> ?",
         "F", "05/14/1996", "Purple", "05/03/2025",
         "F", "06/14/1996", "Black", "01/03/2019", 2, 3);
@@ -161,12 +161,12 @@ public static class GameData
         "F", "11/02/1989", "Blonde", "11/01/2026",
         "M", "11/02/2003", "Blonde", "11/01/2026", 0, 1);
 
-    public static Customer customer7 = new Customer(10, 0, 0, 0, 0, 0, -1, "Sang", 1, 0,
+    public static Customer customer7 = new Customer(20, 0, 0, 0, 0, 0, -1, "Sang", 1, 0,
         "Hi there! Could you make me an <b><i><#B7950B>LA Vacation</color></b></i>?",
         "M", "12/12/1990", "Brown", "09/10/2025",
         "M", "12/12/2004", "Blue", "09/10/2025", 1, 2);
     
-    public static Customer customer8 = new Customer(10, 0, 0, 0, 0, 0, -1, "Calvin", 1, 3,
+    public static Customer customer8 = new Customer(20, 0, 0, 0, 0, 0, -1, "Calvin", 1, 3,
         "Hi! I would like a non-alcoholic drink, so a <b><i><#B7950B>Kindergarten</color></i></b> please!",
         "M", "01/23/2000", "Brown", "01/14/2025",
         "F", "01/23/2000", "Brown", "01/14/2019", 0, 3);
@@ -176,7 +176,7 @@ public static class GameData
         "M", "07/20/1990", "Blue", "08/25/2025",
         "M", "04/13/2003", "Blonde", "08/25/2025", 1, 2);
 
-    public static Customer customer10 = new Customer(10, 0, 0, 1, 0, 0, -1, "Sammy", 1, -1,
+    public static Customer customer10 = new Customer(15, 0, 0, 1, 0, 0, -1, "Sammy", 1, -1,
         "Could you make a <b><i><#1ABC77>Sour</color></i></b> drink for me?",
         "M", "08/24/1990", "Light Blue", "11/11/2024",
         "F", "08/24/1990", "Brown", "11/11/2010", 0, 2);
@@ -186,17 +186,17 @@ public static class GameData
         "F", "02/27/2000", "Light Blue", "12/10/2024",
         "M", "02/27/2004", "Light Blue", "12/10/2024", 0, 1);
 
-    public static Customer customer12 = new Customer(10, 1, 0, 0, 0, 0, -1, "Xing", 1, -1,
+    public static Customer customer12 = new Customer(15, 1, 0, 0, 0, 0, -1, "Xing", 1, -1,
         "I am really feeling a <b><i><#FF5F00>Spicy</color></i></b> drink now!",
         "F", "05/10/1997", "Brown", "10/12/2024",
         "F", "05/10/1997", "Purple", "10/12/2020", 2, 3);
 
-    public static Customer customer13 = new Customer(10, 0, 1, 0, 0, 0, -1, "James", 1, -1,
+    public static Customer customer13 = new Customer(20, 0, 1, 0, 0, 0, -1, "James", 1, -1,
         "I would like a <b><#FF00FD>Sweet</color></b> drink!",
         "M", "12/12/1997", "Brown", "12/01/2025",
         "M", "12/12/2005", "Blue", "12/01/2025", 1, 2);
     
-    public static Customer customer14 = new Customer(20, 0, 1, 1, 0, 0, -1, "Igor", 2, -1,
+    public static Customer customer14 = new Customer(30, 0, 1, 1, 0, 0, -1, "Igor", 2, -1,
         "Could you make me something <b><#FF00FD>Sweet</color></b> and <b><#1ABC77>Sour</color></b>?",
         "M", "01/11/1995", "Brown", "11/07/2024",
         "F", "01/11/2004", "Brown", "11/07/2024", 0, 1);
@@ -206,7 +206,7 @@ public static class GameData
         "F", "02/28/1997", "Red", "08/07/2024",
         "F", "02/28/1997", "Red", "08/07/2015", 3, -1);
     
-    public static Customer customer16 = new Customer(10, 0, 0, 0, 1, 0, -1, "Jen", 1, -1,
+    public static Customer customer16 = new Customer(15, 0, 0, 0, 1, 0, -1, "Jen", 1, -1,
         "I would like something <b><#002CFF>Aromatic</color></b>!",
         "F", "01/30/1999", "Brown", "01/15/2025",
         "M", "01/30/2003", "Light Blue", "01/15/2025", 0, 2);
@@ -226,7 +226,7 @@ public static class GameData
         "M", "07/10/1997", "Brown", "04/18/2025",
         "M", "07/10/2005", "Brown", "04/18/2025", 1, -1);
 
-    public static Customer customer20 = new Customer(10, 0, 0, 0, 0, 0, -1, "Paris", 1,0,
+    public static Customer customer20 = new Customer(20, 0, 0, 0, 0, 0, -1, "Paris", 1,0,
         "I would like an <b><i><#B7950B>LA Vacation</color></b></i> please! ",
         "F", "06/02/1985", "Brown", "09/10/2027",
         "F", "06/02/2003", "Brown", "09/10/2007", 1, 3);
@@ -236,6 +236,6 @@ public static class GameData
         customer4, customer5, customer6, customer7, customer8, customer9, customer10, customer11, customer12,
         customer13, customer14, customer15, customer16, customer17, customer18, customer19, customer20};
 
-    public static List<float> goals = new List<float>(){0f,40f,90f,150f,220f};
+    public static List<float> goals = new List<float>(){0f,40f,80f,140f,210f};
 
 }
