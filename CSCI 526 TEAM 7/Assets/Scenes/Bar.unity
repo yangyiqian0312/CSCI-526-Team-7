@@ -647,7 +647,6 @@ MonoBehaviour:
   backsp2: {fileID: -234497230981590844, guid: 3e087be5e2d7d7c4db0b89766fa06f3e, type: 3}
   frontsp3: {fileID: -6211030962572625068, guid: 29f3cfc9a0b42eb41ac56361732c64eb, type: 3}
   backsp3: {fileID: 1133430343619412072, guid: 29f3cfc9a0b42eb41ac56361732c64eb, type: 3}
-  waitTime0: 0
   startWaitTime: 2
 --- !u!1001 &76844180
 PrefabInstance:
@@ -1503,7 +1502,6 @@ MonoBehaviour:
   backsp2: {fileID: 378471108023897391, guid: ae37edda2dd4752489bf4a6c9c47ff03, type: 3}
   frontsp3: {fileID: -4628225620171276779, guid: 3e087be5e2d7d7c4db0b89766fa06f3e, type: 3}
   backsp3: {fileID: -234497230981590844, guid: 3e087be5e2d7d7c4db0b89766fa06f3e, type: 3}
-  waitTime0: 2
   startWaitTime: 2
 --- !u!1 &712219033
 GameObject:
@@ -6642,7 +6640,6 @@ MonoBehaviour:
   backsp2: {fileID: 1133430343619412072, guid: 29f3cfc9a0b42eb41ac56361732c64eb, type: 3}
   frontsp3: {fileID: 4758776143359820123, guid: ae37edda2dd4752489bf4a6c9c47ff03, type: 3}
   backsp3: {fileID: 378471108023897391, guid: ae37edda2dd4752489bf4a6c9c47ff03, type: 3}
-  waitTime0: 0
   startWaitTime: 2
 --- !u!1 &1862034628
 GameObject:
