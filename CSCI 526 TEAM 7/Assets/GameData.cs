@@ -164,7 +164,7 @@ public static class GameData
     public static Customer customer7 = new Customer(10, 0, 0, 0, 0, 0, -1, "Sang", 1, 0,
         "Hi there! Could you make me an <b><i><#B7950B>LA Vacation</color></b></i>?",
         "M", "12/12/1990", "Brown", "09/10/2025",
-        "M", "12/12/2004", "Blue", "09/10/2020", 1, 2);
+        "M", "12/12/2004", "Blue", "09/10/2025", 1, 2);
     
     public static Customer customer8 = new Customer(10, 0, 0, 0, 0, 0, -1, "Calvin", 1, 3,
         "Hi! I would like a non-alcoholic drink, so a <b><i><#B7950B>Kindergarten</color></i></b> please!",
